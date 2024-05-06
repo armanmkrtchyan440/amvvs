@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.modal-opened {
+  overflow: hidden;
+}
+
+.modal-animation {
+  animation: 1s animate-modal;
+}
+
+@keyframes animate-modal {
+}

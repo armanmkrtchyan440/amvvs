@@ -1,0 +1,131 @@
+{
+  "header": {
+    "home": "Home",
+    "services": "Services",
+    "about-us": "About Us",
+    "portfolio": "Portfolio",
+    "feedback": "Feedback",
+    "contact-us": "Contact Us"
+  },
+  "home": {
+    "contact-us": "Contact Us",
+    "hero": {
+      "title": {
+        "line1": "Solve Today",
+        "line2": "Quality Plumbing",
+        "line3": "Service Excellence"
+      },
+      "description": "AM VVS AB offers professional and reliable plumbing solutions that cater to all your water systems' needs."
+    },
+    "quote": "Get Quote",
+    "services": {
+      "title": "Our Plumbing Services",
+      "description": "From routine maintenance to complex installations, our team provides a wide range of plumbing services tailored to ensure your comfort and safety.",
+      "service1": {
+        "title": "Expert Service",
+        "description": "With our comprehensive service options, we address all plumbing issues promptly to keep your home or business running smoothly."
+      },
+      "service2": {
+        "title": "Water Heater",
+        "description": "Our specialized services include water heater maintenance, repairs, and installations, empowering you with uninterrupted hot water supply."
+      },
+      "service3": {
+        "title": "Renovations",
+        "description": "Skillful change-outs of sinks, fixtures, and cabinetry to rejuvenate your space, all with guaranteed quality and durability."
+      },
+      "service4": {
+        "title": "Pipe Repairs",
+        "description": "We tackle all forms of pipe repairs, from leaks to blockages, ensuring a robust and efficient plumbing system for our customers."
+      },
+      "service5": {
+        "title": "Bathroom Work",
+        "description": "Bathing in excellence, we provide upscale bathroom installations and upgrades that enhance your personal comfort."
+      },
+      "service6": {
+        "title": "Installation",
+        "description": "Our technicians expertly install a variety of plumbing components with precision, offering unmatched service and long-lasting results."
+      }
+    },
+    "call-to-action": {
+      "subheader": "Ready to Act?",
+      "header": "Request Plumbing Services",
+      "subtext": "Don't let plumbing challenges dampen your day. Contact us now for efficient, reliable service."
+    },
+    "testimonials": {
+      "header": "Customer Insight",
+      "subtext": "Real feedback from our satisfied clients which reflects our commitment to service and excellence.",
+      "topic": "Exceptional Work",
+      "quote": "AM VVS AB provided professional and detail-oriented service during our bathroom renovation. Truly top-notch!",
+      "name": "- John Smith",
+      "link": "Go to Google feedbacks"
+    },
+    "about": {
+      "header": "About Us",
+      "paragraph1": "At AM VVS AB, we're a team of certified plumbing professionals passionately dedicated to solving your plumbing conundrums with superior service and cutting-edge solutions.",
+      "list": {
+        "item1": "Our proficiency in a wide array of plumbing services ensures that we are well-equipped to handle any challenge, no matter how complex.",
+        "item2": "With a focus on customer satisfaction, we're committed to delivering timely and exceptional work, time and time again.",
+        "item3": "Investing in the latest technologies, we strive to provide eco-friendly and cost-effective plumbing solutions that stand the test of time."
+      },
+      "paragraph2": "Choosing AM VVS AB means opting for a partner that values your comfort and safety, with a proven track record of exceeding customer expectations."
+    }
+  },
+
+  "services": {
+    "title": "Our Plumbing Services"
+  },
+
+  "service": {
+    "contact-us": "Contact Us",
+    "rules-title": "Rules",
+    "view-service": "View Service"
+  },
+
+  "contact-form": {
+    "first-name": {
+      "title": "First Name",
+      "error": "Write your first name"
+    },
+    "last-name": {
+      "title": "Last Name",
+      "error": "Write your last name"
+    },
+    "email": {
+      "title": "Email Address",
+      "error": {
+        "email": "Write correct email",
+        "required": "Write your email"
+      }
+    },
+    "phone": {
+      "title": "Phone",
+      "error": "Write your phone number"
+    },
+    "service": {
+      "title": "Select Service",
+      "error": "Select service what you want"
+    },
+    "message": {
+      "title": "Message",
+      "error": "Max length for message 2500 letters"
+    },
+    "files": {
+      "title": "Add Files"
+    },
+    "submit": "Send Message"
+  },
+
+  "footer": {
+    "name-subtext": "AM VVS AB, your trusted source for comprehensive plumbing services. We're committed to delivering excellence with each job undertaken.",
+    "nav-links": {
+      "home": "Home",
+      "services": "Services",
+      "aboutUs": "About Us",
+      "portfolio": "Portfolio",
+      "feedback": "Feedback"
+    },
+    "contact-us": "Contact Us",
+    "address": "Stockholm, Sweden",
+    "copyright": "© AM VVS AB 2024."
+  }
+}
