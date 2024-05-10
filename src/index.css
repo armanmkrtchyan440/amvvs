@@ -6,6 +6,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .modal-opened {
   overflow: hidden;
 }
@@ -14,5 +18,23 @@ html {
   animation: 1s animate-modal;
 }
 
-@keyframes animate-modal {
+.scrollbar-none {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-link {
+  @apply text-gray-800 transition;
+}
+
+.nav-link:hover {
+  @apply opacity-70;
+}
+
+.nav-link.active {
+  @apply opacity-70;
 }

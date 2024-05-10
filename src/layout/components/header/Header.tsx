@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/Button";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { FaCartShopping } from "react-icons/fa6";
 
 export const Header = () => {
   const { t } = useTranslation(undefined, { keyPrefix: "header" });
@@ -42,30 +43,33 @@ export const Header = () => {
             id="nav-links"
             className="hidden items-center space-x-8 text-sm md:flex lg:text-base"
           >
-            <Link to="/" className="text-gray-800">
+            <NavLink to="/" className="nav-link">
               {t("home")}
-            </Link>
-            <Link to="/services" className="text-gray-800">
+            </NavLink>
+            <NavLink to="/categories" className="nav-link">
+              {t("categories")}
+            </NavLink>
+            <NavLink to="/services" className="nav-link">
               {t("services")}
-            </Link>
-            <Link to="/#about" className="text-gray-800">
+            </NavLink>
+            <NavLink to="/about-us" className="nav-link">
               {t("about-us")}
-            </Link>
-            {/* <Link to="/#portfolio" className="text-gray-800">
-              {t("portfolio")}
-            </Link> */}
-            <Link to="/#testimonials" className="text-gray-800">
+            </NavLink>
+            <NavLink to="/feedbacks" className="nav-link">
               {t("feedback")}
-            </Link>
+            </NavLink>
           </div>
           <div
             id="nav-cta"
             className="hidden items-center space-x-4 text-sm md:flex lg:text-base"
           >
             <div id="nav-cta-button">
-              <Button variant="modal" className="text-xs uppercase">
+              {/* <Button variant="modal" className="text-xs uppercase">
                 {t("contact-us")}
-              </Button>
+              </Button> */}
+              <button>
+                <FaCartShopping className="text-4xl" />
+              </button>
             </div>
           </div>
           <div
@@ -101,21 +105,21 @@ export const Header = () => {
           className={`mt-4 ${!isNavOpen ? "hidden" : ""} md:hidden`}
         >
           <div className="absolute w-full left-0 z-10 flex flex-col space-y-2 bg-white pb-4 text-center text-lg">
-            <Link to="/" className="text-gray-800">
+            <NavLink to="/" className="nav-link">
               {t("home")}
-            </Link>
-            <Link to="/services" className="text-gray-800">
+            </NavLink>
+            <NavLink to="/categories" className="nav-link">
+              {t("categories")}
+            </NavLink>
+            <NavLink to="/services" className="nav-link">
               {t("services")}
-            </Link>
-            <Link to="/#about" className="text-gray-800">
+            </NavLink>
+            <NavLink to="/about-us" className="nav-link">
               {t("about-us")}
-            </Link>
-            {/* <Link to="/#portfolio" className="text-gray-800">
-              {t("portfolio")}
-            </Link> */}
-            <Link to="/#testimonials" className="text-gray-800">
+            </NavLink>
+            <NavLink to="/feedback" className="nav-link">
               {t("feedback")}
-            </Link>
+            </NavLink>
             <div id="nav-mobile-cta-button" className="flex-col space-y-2 pt-4">
               <div>
                 <Button variant="modal" className="text-xs uppercase">

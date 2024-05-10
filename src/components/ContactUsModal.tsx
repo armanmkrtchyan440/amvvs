@@ -69,7 +69,7 @@ export const ContactUsModal: FC<IContactUs> = ({
             variants={containerVariant}
           >
             <div className="lg:container">
-              <div className="relative z-10 rounded-3xl bg-white p-6 shadow-[0_0_25px_rgba(0,0,0,0.1)]">
+              <div className="relative z-10 rounded-3xl bg-white p-6 shadow-[0_0_25px_rgba(0,0,0,0.1)] max-h-screen overflow-auto scrollbar-none">
                 <button
                   className="absolute top-3 right-3 z-20 text-[30px] text-gray-700"
                   onClick={handleModalClose}

@@ -40,6 +40,9 @@ export const Footer = () => {
             <Link to="/" className="text-gray-700">
               {t("nav-links.home")}
             </Link>
+            <Link to="/categories" className="text-gray-700">
+              {t("nav-links.categories")}
+            </Link>
             <Link to="/services" className="text-gray-700">
               {t("nav-links.services")}
             </Link>

@@ -54,7 +54,9 @@ export const ServicePage = () => {
                 <Rules />
               </div>
               <div className="flex justify-between items-center">
-                <h3 className="text-lg">{data?.data.attributes.price} kr</h3>
+                <h3 className="text-lg">
+                  {data?.data.attributes.price} kr (efter ROT inkl moms)
+                </h3>
                 <div>
                   <Button variant="modal" onClick={handleSelectService}>
                     {t("contact-us")}

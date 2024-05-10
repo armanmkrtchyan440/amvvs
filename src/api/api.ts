@@ -29,6 +29,13 @@ export interface IService {
   slug: string;
 }
 
+export interface ICategory {
+  name: string;
+  description: string;
+  slug: string;
+  img: IResponse<IResponseData<{ url: string }>>;
+}
+
 export interface IRule {
   rule: string;
 }
@@ -44,9 +51,15 @@ export async function getOurProjects() {
   return (await response.json()) as IResponse<IResponseData<IOurProjects>[]>;
 }
 
-export async function getServices() {
+export async function getServices(category: string | null) {
+  let categoryQuery = "";
+
+  if (category) {
+    categoryQuery = `filters[category][slug][$eq]=${category}`;
+  }
+
   const response = await fetch(
-    `${import.meta.env.VITE_BASE_URL}/api/services?populate=*`
+    `${import.meta.env.VITE_BASE_URL}/api/services?populate=*&${categoryQuery}`
   );
   return (await response.json()) as IResponse<IResponseData<IService>[]>;
 }
@@ -70,6 +83,15 @@ export async function getService(options: ApiParam) {
     `${import.meta.env.VITE_BASE_URL}/api/services/${id}?populate=*`
   );
   return (await response.json()) as IResponse<IResponseData<IService>>;
+}
+
+export async function getCategories() {
+  const response = await fetch(
+    `${
+      import.meta.env.VITE_BASE_URL
+    }/api/categories?populate=img&filters[services][name][$contains]=`
+  );
+  return (await response.json()) as IResponse<IResponseData<ICategory>[]>;
 }
 
 export async function getRules() {

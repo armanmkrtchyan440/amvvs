@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/Button";
-import {
-  aboutUsBigImg,
-  aboutUsSmallImg,
-  businessManImg,
-  heroImg,
-  serviceImg,
-  testimonialImg,
-} from "./images/homeImg";
+import { businessManImg, heroImg, serviceImg } from "./images/homeImg";
 import { useTranslation } from "react-i18next";
+import { Variants, motion } from "framer-motion";
+import {
+  leftToRightVariant,
+  rightToLeftVariant,
+  showVariant,
+} from "@/constants";
 
 export const HomePage = () => {
   const { t } = useTranslation(undefined, { keyPrefix: "home" });
@@ -21,7 +20,11 @@ export const HomePage = () => {
         <div className="container relative z-10 mx-auto px-4 sm:px-12 lg:pb-32 xl:px-32">
           <div className="relative z-10 flex flex-col items-center lg:flex-row">
             <div className="mt-12 w-full lg:mt-24 lg:w-[55%] lg:pr-14">
-              <h1
+              <motion.h1
+                initial={"initial"}
+                whileInView={"isOpen"}
+                viewport={{ once: true }}
+                variants={leftToRightVariant}
                 id="hero-text"
                 className="mb-8 text-center text-4xl font-bold lg:text-left xl:text-5xl 2xl:text-6xl"
               >
@@ -33,23 +36,37 @@ export const HomePage = () => {
                   {t("hero.title.line2")}
                 </div>
                 <div id="hero-action-3">{t("hero.title.line3")}</div>
-              </h1>
-              <p
+              </motion.h1>
+              <motion.p
+                initial={"initial"}
+                whileInView={"isOpen"}
+                viewport={{ once: true }}
+                variants={leftToRightVariant}
                 id="hero-subtext"
                 className="mb-8 text-center text-gray-700 lg:text-left"
               >
                 {t("hero.description")}
-              </p>
-              <div
+              </motion.p>
+              <motion.div
+                initial={"initial"}
+                whileInView={"isOpen"}
+                viewport={{ once: true }}
+                variants={leftToRightVariant}
                 id="hero-cta-button"
                 className="mb-12 text-center lg:text-left"
               >
                 <Button variant="modal" className="px-5 text-xs uppercase">
                   {t("quote")}
                 </Button>
-              </div>
+              </motion.div>
             </div>
-            <div className="relative mt-12 hidden w-full overflow-visible lg:block lg:w-[45%] lg:p-6">
+            <motion.div
+              initial={"initial"}
+              whileInView={"isOpen"}
+              viewport={{ once: true }}
+              variants={rightToLeftVariant}
+              className="relative mt-12 hidden w-full overflow-visible lg:block lg:w-[45%] lg:p-6"
+            >
               <div className="primary-color-border absolute bottom-0 left-0 h-0 w-0 border-[100px] border-transparent border-b-blue-600 border-l-blue-600"></div>
               <div className="absolute -right-9 top-16 h-[145px] w-[190px] bg-[radial-gradient(#cccccc_3px,transparent_3px)] [background-size:16px_16px]"></div>
               <img
@@ -58,7 +75,7 @@ export const HomePage = () => {
                 className="seo-image relative mt-8 aspect-square w-full rounded-2xl object-cover lg:mt-0"
                 data-media='{"id":"4CNNH2KEjhc","src":"unsplash","type":"image"}'
               />
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="primary-color-border primary-color-[100] absolute -left-56 -top-24 h-[400px] w-[400px] rounded-full border-[60px] border-blue-100"></div>
@@ -71,18 +88,26 @@ export const HomePage = () => {
         className="code-section bg-white py-20 font-['Poppins']"
       >
         <div className="container mx-auto px-4 sm:px-12 xl:px-32">
-          <h2
+          <motion.h2
+            initial={"initial"}
+            whileInView={"isOpen"}
+            viewport={{ once: true }}
+            variants={leftToRightVariant}
             id="services-header"
             className="mb-8 text-center text-3xl font-bold xl:text-4xl 2xl:text-5xl"
           >
             {t("services.title")}
-          </h2>
-          <h3
+          </motion.h2>
+          <motion.h3
+            initial={"initial"}
+            whileInView={"isOpen"}
+            viewport={{ once: true }}
+            variants={rightToLeftVariant}
             id="services-subtext"
             className="mx-auto mb-12 w-3/4 text-center font-thin text-gray-700"
           >
             {t("services.description")}
-          </h3>
+          </motion.h3>
           <div className="flex flex-row">
             <div className="hidden w-[30%] xl:block">
               <img
@@ -93,7 +118,12 @@ export const HomePage = () => {
               />
             </div>
             <div className="grid w-full grid-cols-1 gap-y-12 md:grid-cols-3 xl:w-[70%]">
-              <div
+              <motion.div
+                initial={"initial"}
+                whileInView={"isOpen"}
+                viewport={{ once: true }}
+                variants={showVariant}
+                transition={{ ease: "easeOut", duration: 2 }}
                 id="service-1"
                 className="flex-1 bg-white px-8 text-center md:max-w-xs"
               >
@@ -112,8 +142,13 @@ export const HomePage = () => {
                 <p id="service-1-text" className="text-gray-700">
                   {t("services.service1.description")}
                 </p>
-              </div>
-              <div
+              </motion.div>
+              <motion.div
+                initial={"initial"}
+                whileInView={"isOpen"}
+                viewport={{ once: true }}
+                variants={showVariant}
+                transition={{ ease: "easeOut", duration: 2.2 }}
                 id="service-2"
                 className="flex-1 bg-white px-8 text-center md:max-w-xs"
               >
@@ -132,8 +167,13 @@ export const HomePage = () => {
                 <p id="service-2-text" className="text-gray-700">
                   {t("services.service2.description")}
                 </p>
-              </div>
-              <div
+              </motion.div>
+              <motion.div
+                initial={"initial"}
+                whileInView={"isOpen"}
+                viewport={{ once: true }}
+                variants={showVariant}
+                transition={{ ease: "easeOut", duration: 2.4 }}
                 id="service-3"
                 className="flex-1 bg-white px-8 text-center md:max-w-xs"
               >
@@ -152,8 +192,13 @@ export const HomePage = () => {
                 <p id="service-3-text" className="text-gray-700">
                   {t("services.service3.description")}
                 </p>
-              </div>
-              <div
+              </motion.div>
+              <motion.div
+                initial={"initial"}
+                whileInView={"isOpen"}
+                viewport={{ once: true }}
+                variants={showVariant}
+                transition={{ ease: "easeOut", duration: 2.6 }}
                 id="service-4"
                 className="flex-1 bg-white px-8 text-center md:max-w-xs"
               >
@@ -172,8 +217,13 @@ export const HomePage = () => {
                 <p id="service-4-text" className="break-words text-gray-700">
                   {t("services.service4.description")}
                 </p>
-              </div>
-              <div
+              </motion.div>
+              <motion.div
+                initial={"initial"}
+                whileInView={"isOpen"}
+                viewport={{ once: true }}
+                variants={showVariant}
+                transition={{ ease: "easeOut", duration: 2.8 }}
                 id="service-5"
                 className="flex-1 bg-white px-8 text-center md:max-w-xs"
               >
@@ -192,8 +242,13 @@ export const HomePage = () => {
                 <p id="service-5-text" className="text-gray-700">
                   {t("services.service5.description")}
                 </p>
-              </div>
-              <div
+              </motion.div>
+              <motion.div
+                initial={"initial"}
+                whileInView={"isOpen"}
+                viewport={{ once: true }}
+                variants={showVariant}
+                transition={{ ease: "easeOut", duration: 3 }}
                 id="service-6"
                 className="flex-1 bg-white px-8 text-center md:max-w-xs"
               >
@@ -212,7 +267,7 @@ export const HomePage = () => {
                 <p id="service-6-text" className="text-gray-700">
                   {t("services.service6.description")}
                 </p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -274,7 +329,7 @@ export const HomePage = () => {
         </div>
       </section>
       {/* <Portfolio /> */}
-      <section
+      {/* <section
         id="testimonials"
         className="code-section relative bg-white font-['Poppins']"
       >
@@ -345,8 +400,9 @@ export const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
-      <section
+      </section> */}
+
+      {/* <section
         id="about"
         className="code-section relative bg-white font-['Poppins']"
       >
@@ -405,14 +461,6 @@ export const HomePage = () => {
               >
                 {t("about.paragraph2")}
               </p>
-              {/* <div
-                id="about-cta-button"
-                className="mb-12 text-center lg:text-left"
-              >
-                <Button variant="modal" className="px-8 py-4 font-semibold">
-                  Learn More
-                </Button>
-              </div> */}
             </div>
             <div className="relative mt-12 hidden w-full overflow-visible lg:block lg:w-[45%] lg:p-6">
               <div className="primary-color-border absolute bottom-0 left-0 h-0 w-0 border-[100px] border-transparent border-b-blue-600 border-l-blue-600"></div>
@@ -434,7 +482,8 @@ export const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
       {/* <section id="contact" className="code-section font-['Poppins']">
         <div className="mx-auto px-4 py-20 lg:container sm:px-12 xl:px-32">
           <div className="relative z-10 rounded-3xl bg-white p-6 shadow-[0_0_25px_rgba(0,0,0,0.1)]">

@@ -2,6 +2,7 @@
   "contact-us": "Kontakta oss",
   "header": {
     "home": "Hem",
+    "categories": "Kategorier",
     "services": "Tjänster",
     "about-us": "Om oss",
     "portfolio": "Portfölj",
@@ -82,6 +83,10 @@
     "view-service": "Visa tjänst"
   },
 
+  "categories": {
+    "title": "Kategorier"
+  },
+
   "contact-form": {
     "first-name": {
       "title": "Förnamn",
@@ -120,6 +125,7 @@
     "name-subtext": "AM VVS AB, din pålitliga källa för omfattande VVS-tjänster. Vi är fast beslutna att leverera excellens med varje jobb som utförs.",
     "nav-links": {
       "home": "Hem",
+      "categories": "Kategorier",
       "services": "Tjänster",
       "aboutUs": "Om oss",
       "portfolio": "Portfölj",

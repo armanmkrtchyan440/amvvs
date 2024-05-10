@@ -1,6 +1,7 @@
 {
   "header": {
     "home": "Home",
+    "categories": "Categories",
     "services": "Services",
     "about-us": "About Us",
     "portfolio": "Portfolio",
@@ -81,6 +82,10 @@
     "view-service": "View Service"
   },
 
+  "categories": {
+    "title": "Categories"
+  },
+
   "contact-form": {
     "first-name": {
       "title": "First Name",
@@ -119,6 +124,7 @@
     "name-subtext": "AM VVS AB, your trusted source for comprehensive plumbing services. We're committed to delivering excellence with each job undertaken.",
     "nav-links": {
       "home": "Home",
+      "categories": "Categories",
       "services": "Services",
       "aboutUs": "About Us",
       "portfolio": "Portfolio",
