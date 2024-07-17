@@ -1,38 +1,19 @@
-import {
-  Controller,
-  SubmitHandler,
-  useFieldArray,
-  useForm,
-} from "react-hook-form";
+import { SubmitHandler, useFieldArray, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { ChangeEventHandler, useCallback, useMemo, useRef } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { createQuote, getServicesNames } from "@/api/api";
-import Select from "react-select";
+import { createQuote } from "@/api/api";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input/react-hook-form-input";
 
 import "react-phone-number-input/style.css";
 import { FormState, useFormState } from "@/stores/useFormState";
 import { useTranslation } from "react-i18next";
+import { useCartItems } from "@/stores/useCartItems";
+import { toast } from "react-toastify";
 
-export const ContactForm = () => {
+export const QuoteForm = () => {
   const { t } = useTranslation(undefined, { keyPrefix: "contact-form" });
-  const { data, isFetched } = useQuery({
-    queryKey: ["quote-services"],
-    queryFn: getServicesNames,
-    refetchOnWindowFocus: false,
-  });
-
-  const options = useMemo(
-    () =>
-      data?.data.flatMap(({ attributes }) => ({
-        value: attributes.name,
-        label: attributes.name,
-      })),
-    [isFetched]
-  );
 
   const schema = useMemo(
     () =>
@@ -53,7 +34,6 @@ export const ContactForm = () => {
             .email(t("email.error.email"))
             .required(t("email.error.required")),
           phone: yup.string().trim().required(t("phone.error")),
-          service: yup.string().required(t("service.error")),
           message: yup.string().max(2500, t("message.error")).default(""),
           files: yup.array().nullable().required(),
         })
@@ -62,6 +42,7 @@ export const ContactForm = () => {
   );
 
   const { contact, setContact } = useFormState();
+  const { cartItems, rot } = useCartItems();
 
   const fileInpRef = useRef<HTMLInputElement>(null);
 
@@ -80,28 +61,35 @@ export const ContactForm = () => {
 
   const { append, remove } = useFieldArray({ control, name: "files" });
 
-  const onSubmit = useCallback<SubmitHandler<FormState>>(async (data) => {
-    const formData = new FormData();
+  const onSubmit = useCallback<SubmitHandler<FormState>>(
+    async (data) => {
+      const formData = new FormData();
 
-    formData.append("firstName", data.firstName);
-    formData.append("lastName", data.lastName);
-    formData.append("email", data.email);
-    formData.append("phone", data.phone);
-    formData.append("service", data.service);
-    formData.append("message", data.message);
+      formData.append("firstName", data.firstName);
+      formData.append("lastName", data.lastName);
+      formData.append("email", data.email);
+      formData.append("phone", data.phone);
+      formData.append("message", data.message);
 
-    for (const file of data.files) {
-      formData.append("files", file);
-    }
+      for (const file of data.files) {
+        formData.append("files", file);
+      }
 
-    const response = await createQuote(formData);
+      formData.append("services", JSON.stringify(cartItems));
+      formData.append("rot", JSON.stringify(rot));
 
-    reset({});
+      try {
+        await createQuote(formData);
+      } catch (error) {
+        toast.error("Serverfel: försök igen senare");
+      }
 
-    console.log(response);
+      reset({});
 
-    setContact(getValues());
-  }, []);
+      setContact(getValues());
+    },
+    [rot, cartItems]
+  );
 
   const handleFileChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
     (e) => {
@@ -201,31 +189,7 @@ export const ContactForm = () => {
             </div>
           </div>
         </div>
-        <div className="w-full">
-          <Controller
-            name="service"
-            control={control}
-            render={({ field: { onChange, value } }) => (
-              <Select
-                placeholder={t("service.title")}
-                options={options}
-                value={options?.find((o) => o.value === value)}
-                onChange={(val) => {
-                  onChange(val?.value);
-                }}
-                theme={(theme) => ({
-                  ...theme,
-                  colors: {
-                    ...theme.colors,
-                    primary: "rgb(37 99 235 / var(--tw-bg-opacity))",
-                  },
-                  spacing: { ...theme.spacing, baseUnit: 5 },
-                })}
-              />
-            )}
-          />
-          <p>{errors.service?.message}</p>
-        </div>
+
         <div className="w-full">
           <div>
             <label htmlFor="message" className="font-medium text-gray-700">
@@ -241,7 +205,7 @@ export const ContactForm = () => {
             <p>{errors.message?.message}</p>
           </div>
 
-          <div className="flex gap-5">
+          <div className="flex flex-wrap gap-5">
             <input
               type="file"
               hidden

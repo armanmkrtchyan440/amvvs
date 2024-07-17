@@ -9,7 +9,7 @@ export const AboutUsPage = () => {
       id="about"
       className="code-section relative bg-white font-['Poppins']"
     >
-      <div className="container relative z-10 mx-auto px-4 sm:px-12 lg:pb-12 xl:px-32">
+      <div className="container relative z-10 lg:pb-12">
         <div className="relative z-10 flex flex-col items-center lg:flex-row">
           <div className="mt-12 w-full lg:mt-24 lg:w-[55%] lg:pr-14">
             <h1

@@ -1,3 +1,5 @@
+import { serialize } from "object-to-formdata";
+
 interface IResponse<T> {
   data: T;
   meta?: {
@@ -40,6 +42,26 @@ export interface IRule {
   rule: string;
 }
 
+export interface IBlog {
+  title: string;
+  video: IResponse<IResponseData<{ url: string }>>;
+  thumb: IResponse<IResponseData<{ url: string }>>;
+}
+
+export interface IJob {
+  title: string;
+  description: string;
+  requirements: string[];
+}
+
+export interface ApplyJobBody {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  resume: File;
+}
+
 export interface ApiParam {
   queryKey: Array<string | undefined>;
 }
@@ -51,10 +73,10 @@ export async function getOurProjects() {
   return (await response.json()) as IResponse<IResponseData<IOurProjects>[]>;
 }
 
-export async function getServices(category: string | null) {
+export async function getServices(category: string) {
   let categoryQuery = "";
 
-  if (category) {
+  if (category !== "all") {
     categoryQuery = `filters[category][slug][$eq]=${category}`;
   }
 
@@ -109,5 +131,28 @@ export async function createQuote(body: FormData) {
     throw response.json();
   }
 
+  return await response.json();
+}
+
+export async function getBlogs() {
+  const response = await fetch(
+    `${import.meta.env.VITE_BASE_URL}/api/blogs?populate=*`
+  );
+  return (await response.json()) as IResponse<IResponseData<IBlog>[]>;
+}
+
+export async function getJobs() {
+  const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/jobs`);
+  return (await response.json()) as IResponse<IResponseData<IJob>[]>;
+}
+
+export async function applyJob(body: ApplyJobBody) {
+  const response = await fetch(
+    `${import.meta.env.VITE_BASE_URL}/api/jobs/apply`,
+    {
+      method: "POST",
+      body: serialize(body),
+    }
+  );
   return await response.json();
 }

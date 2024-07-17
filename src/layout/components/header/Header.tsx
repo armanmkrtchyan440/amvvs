@@ -1,12 +1,12 @@
-import { Button } from "@/components/ui/Button";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
+import { useCartItems } from "@/stores/useCartItems";
 
 export const Header = () => {
   const { t } = useTranslation(undefined, { keyPrefix: "header" });
-
+  const { cartItems } = useCartItems();
   const headerRef = useRef<HTMLElement>(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -32,7 +32,7 @@ export const Header = () => {
       className="fixed top-0 z-30 w-full primary-color-bg primary-color-[50] code-section font-['Poppins'] bg-blue-50 py-10 transition-spacing ease-in-out"
       ref={headerRef}
     >
-      <nav className="container relative z-10 mx-auto px-4 sm:px-12 xl:px-32">
+      <nav className="container relative z-10">
         <div className="flex items-center justify-between">
           <div className="w-52">
             <Link id="nav-name-text" to="/" className="">
@@ -46,17 +46,23 @@ export const Header = () => {
             <NavLink to="/" className="nav-link">
               {t("home")}
             </NavLink>
+            <NavLink to="/about-us" className="nav-link">
+              {t("about-us")}
+            </NavLink>
             <NavLink to="/categories" className="nav-link">
               {t("categories")}
             </NavLink>
             <NavLink to="/services" className="nav-link">
               {t("services")}
             </NavLink>
-            <NavLink to="/about-us" className="nav-link">
-              {t("about-us")}
+            <NavLink to="/blog" className="nav-link">
+              {t("blog")}
             </NavLink>
             <NavLink to="/feedbacks" className="nav-link">
               {t("feedback")}
+            </NavLink>
+            <NavLink to="/career" className="nav-link">
+              {t("career")}
             </NavLink>
           </div>
           <div
@@ -67,9 +73,12 @@ export const Header = () => {
               {/* <Button variant="modal" className="text-xs uppercase">
                 {t("contact-us")}
               </Button> */}
-              <button>
+              <Link to={"/cart"} className="relative">
+                <span className="flex justify-center items-center absolute -top-1 -right-1 w-4 h-4 bg-blue-600 rounded-full text-[8px] text-white">
+                  {cartItems.length}
+                </span>
                 <FaCartShopping className="text-4xl" />
-              </button>
+              </Link>
             </div>
           </div>
           <div
@@ -108,25 +117,26 @@ export const Header = () => {
             <NavLink to="/" className="nav-link">
               {t("home")}
             </NavLink>
+            <NavLink to="/about-us" className="nav-link">
+              {t("about-us")}
+            </NavLink>
             <NavLink to="/categories" className="nav-link">
               {t("categories")}
             </NavLink>
             <NavLink to="/services" className="nav-link">
               {t("services")}
             </NavLink>
-            <NavLink to="/about-us" className="nav-link">
-              {t("about-us")}
+            <NavLink to="/blog" className="nav-link">
+              {/* {t("services")} */}
+              Blog
             </NavLink>
             <NavLink to="/feedback" className="nav-link">
               {t("feedback")}
             </NavLink>
-            <div id="nav-mobile-cta-button" className="flex-col space-y-2 pt-4">
-              <div>
-                <Button variant="modal" className="text-xs uppercase">
-                  {t("contact-us")}
-                </Button>
-              </div>
-            </div>
+            <NavLink to="/career" className="nav-link">
+              {/* {t("feedback")} */}
+              Career
+            </NavLink>
           </div>
         </div>
       </nav>

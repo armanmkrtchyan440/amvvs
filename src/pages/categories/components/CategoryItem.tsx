@@ -22,7 +22,7 @@ export const CategoryItem: FC<ICategory> = ({
           />
         </div>
         <div className="rounded-b-3xl bg-white p-6">
-          <h2 className="text-2xl font-bold text-center">{name}</h2>
+          <h2 className="text-2xl font-bold">{name}</h2>
           <div className="text-lg font-thin text-gray-600">{description}</div>
         </div>
       </Link>

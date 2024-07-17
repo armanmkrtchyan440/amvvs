@@ -4,9 +4,11 @@
     "categories": "Categories",
     "services": "Services",
     "about-us": "About Us",
+    "blog": "Blog",
     "portfolio": "Portfolio",
     "feedback": "Feedback",
-    "contact-us": "Contact Us"
+    "contact-us": "Contact Us",
+    "career": "Career"
   },
   "home": {
     "contact-us": "Contact Us",
@@ -79,11 +81,58 @@
   "service": {
     "contact-us": "Contact Us",
     "rules-title": "Rules",
-    "view-service": "View Service"
+    "view-service": "View Service",
+    "add-to-cart": "Add To Cart"
+  },
+
+  "blog": {
+    "title": "Blog"
   },
 
   "categories": {
     "title": "Categories"
+  },
+
+  "career": {
+    "title": "Join Our Plumbing Team",
+    "description": "We're looking for talented professionals to join our growing team.",
+    "current-job-openings": {
+      "title": "Current Job Openings",
+      "requirements": "Requirements"
+    },
+    "why-work-with-us": {
+      "title": "Why Work With Us?",
+      "salary-benefits": "Competitive salary and benefits",
+      "career-advancement": "Opportunities for career advancement",
+      "friendly": "Friendly and supportive work environment",
+      "training": "Ongoing training and professional development"
+    },
+    "job-apply": {
+      "title": "Apply for a Job",
+      "name": {
+        "title": "Name",
+        "error": "Write your name"
+      },
+      "email": {
+        "title": "Email Address",
+        "error": {
+          "email": "Write correct email",
+          "required": "Write your email"
+        }
+      },
+      "phone": {
+        "title": "Phone",
+        "error": "Write your phone number"
+      },
+      "message": {
+        "title": "Cover Letter",
+        "error": "Max length for message 2500 letters"
+      },
+      "resume": {
+        "title": "Resume"
+      },
+      "submit": "Submit Application"
+    }
   },
 
   "contact-form": {
@@ -106,10 +155,6 @@
       "title": "Phone",
       "error": "Write your phone number"
     },
-    "service": {
-      "title": "Select Service",
-      "error": "Select service what you want"
-    },
     "message": {
       "title": "Message",
       "error": "Max length for message 2500 letters"
@@ -128,10 +173,36 @@
       "services": "Services",
       "aboutUs": "About Us",
       "portfolio": "Portfolio",
-      "feedback": "Feedback"
+      "feedback": "Feedback",
+      "blog": "Blog",
+      "career": "Career"
     },
     "contact-us": "Contact Us",
     "address": "Stockholm, Sweden",
     "copyright": "© AM VVS AB 2024."
+  },
+
+  "carts": {
+    "title": "Carts",
+    "empty-card": "Cart Is Empty",
+    "table": {
+      "name": "Name",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "actions": "Actions"
+    },
+    "after-rot": "(After ROT)",
+    "rot-deduction": "ROT deduction",
+    "sub-total": "Sub-Total",
+    "items": "items",
+    "complete": "Complete Booking",
+    "increase": "{{name}} increased by one",
+    "add": "{{name}} added by one",
+    "decrease": "{{name}} decreased by one"
+  },
+
+  "kassa": {
+    "title": "Your order"
   }
 }

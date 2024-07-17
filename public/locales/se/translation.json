@@ -5,9 +5,11 @@
     "categories": "Kategorier",
     "services": "Tjänster",
     "about-us": "Om oss",
+    "blog": "Blogg",
     "portfolio": "Portfölj",
     "feedback": "Återkoppling",
-    "contact-us": "Kontakta oss"
+    "contact-us": "Kontakta oss",
+    "career": "Karriär"
   },
   "home": {
     "contact-us": "Kontakta oss",
@@ -80,7 +82,54 @@
   "service": {
     "contact-us": "Kontakta oss",
     "rules-title": "Regler",
-    "view-service": "Visa tjänst"
+    "view-service": "Visa tjänst",
+    "add-to-cart": "Lägg till i kundvagn"
+  },
+
+  "blog": {
+    "title": "Blogg"
+  },
+
+  "career": {
+    "title": "Bli en del av vårt VVS-team",
+    "description": "Vi letar efter begåvade medarbetare till vårt växande team.",
+    "current-job-openings": {
+      "title": "Aktuella lediga jobb",
+      "requirements": "Förutsättningar"
+    },
+    "why-work-with-us": {
+      "title": "Varför arbeta med oss?",
+      "salary-benefits": "Konkurrenskraftig lön och förmåner",
+      "career-advancement": "Möjligheter till karriärutveckling",
+      "friendly": "Vänlig och stödjande arbetsmiljö",
+      "training": "Löpande utbildning och professionell utveckling"
+    },
+    "job-apply": {
+      "title": "Ansök till ett jobb",
+      "name": {
+        "title": "Namn",
+        "error": "Skriv ditt namn"
+      },
+      "email": {
+        "title": "E-postadress",
+        "error": {
+          "email": "Skriv korrekt e-post",
+          "required": "Skriv din e-post"
+        }
+      },
+      "phone": {
+        "title": "Telefon",
+        "error": "Skriv ditt telefonnummer"
+      },
+      "message": {
+        "title": "Följebrev",
+        "error": "Max längd för meddelande 2500 bokstäver"
+      },
+      "resume": {
+        "title": "Meritförteckning"
+      },
+      "submit": "Skicka in ansökan"
+    }
   },
 
   "categories": {
@@ -129,10 +178,36 @@
       "services": "Tjänster",
       "aboutUs": "Om oss",
       "portfolio": "Portfölj",
-      "feedback": "Återkoppling"
+      "feedback": "Återkoppling",
+      "blog": "Blogg",
+      "career": "Karriär"
     },
     "contact-us": "Kontakta oss",
     "address": "Stockholm, Sverige",
     "copyright": "© AM VVS AB 2024."
+  },
+
+  "carts": {
+    "title": "Vagnar",
+    "empty-card": "Vagnen är tom",
+    "table": {
+      "name": "Namn",
+      "price": "Pris",
+      "quantity": "Kvantitet",
+      "total": "Totalt",
+      "actions": "Åtgärder"
+    },
+    "after-rot": "(Efter ROT)",
+    "rot-deduction": "ROT-avdrag",
+    "sub-total": "Subtotal",
+    "items": "föremål",
+    "complete": "Komplett bokning",
+    "increase": "{{name}} ökat med en",
+    "add": "{{name}} tillagd av en",
+    "decrease": "{{name}} minskade med en"
+  },
+
+  "kassa": {
+    "title": "Din beställning"
   }
 }

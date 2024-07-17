@@ -1,15 +1,15 @@
-import { getCategories } from "@/api/api";
+import { getBlogs, getCategories } from "@/api/api";
 import { Loading } from "@/components/ui/Loading";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { CategoryItem } from "./components/CategoryItem";
+import { BlogItem } from "./components/BlogItem";
 
-export const CategoriesPage = () => {
-  const { t } = useTranslation(undefined, { keyPrefix: "categories" });
+export const BlogPage = () => {
+  const { t } = useTranslation(undefined, { keyPrefix: "blog" });
 
   const { data, isLoading } = useQuery({
-    queryKey: ["categories"],
-    queryFn: getCategories,
+    queryKey: ["blogs"],
+    queryFn: getBlogs,
     refetchOnWindowFocus: false,
   });
 
@@ -17,7 +17,7 @@ export const CategoriesPage = () => {
     <section className="code-section bg-white py-20 font-['Poppins']">
       <div className="container">
         <h2
-          id="services-header"
+          id="blog-header"
           className="mb-8 text-center text-3xl font-bold xl:text-4xl 2xl:text-5xl"
         >
           {t("title")}
@@ -25,9 +25,9 @@ export const CategoriesPage = () => {
         {isLoading && <Loading />}
 
         {!isLoading && (
-          <div className="relative z-10 grid grid-cols-1 grid-flow-row gap-8 md:grid-cols-3 items-stretch">
-            {data?.data?.map((category) => (
-              <CategoryItem key={category.id} {...category.attributes} />
+          <div className="relative z-10 grid grid-cols-1 grid-flow-row gap-8 md:grid-cols-2 items-stretch">
+            {data?.data?.map((blog) => (
+              <BlogItem key={blog.id} {...blog.attributes} />
             ))}
           </div>
         )}

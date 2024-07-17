@@ -1,15 +1,15 @@
-import { getService } from "@/api/api";
-import { Button } from "@/components/ui/Button";
+import { IService, getService } from "@/api/api";
 import { Loading } from "@/components/ui/Loading";
-import { useFormState } from "@/stores/useFormState";
 import { useQuery } from "@tanstack/react-query";
 import { useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { Rules } from "./components/Rules";
 import { useTranslation } from "react-i18next";
+import { useCartItems } from "@/stores/useCartItems";
 
 export const ServicePage = () => {
   const { t } = useTranslation(undefined, { keyPrefix: "service" });
+  const { addCartItem } = useCartItems();
   const { id } = useParams();
 
   const { data, isLoading } = useQuery({
@@ -18,10 +18,8 @@ export const ServicePage = () => {
     refetchOnWindowFocus: false,
   });
 
-  const { contact, setContact } = useFormState();
-
-  const handleSelectService = useCallback(() => {
-    setContact({ ...contact, service: data?.data.attributes.name as string });
+  const handleAddToCart = useCallback(() => {
+    addCartItem(data?.data.id as number, data?.data.attributes as IService);
   }, [data]);
 
   return (
@@ -54,13 +52,14 @@ export const ServicePage = () => {
                 <Rules />
               </div>
               <div className="flex justify-between items-center">
-                <h3 className="text-lg">
-                  {data?.data.attributes.price} kr (efter ROT inkl moms)
-                </h3>
+                <h3 className="text-lg">{data?.data.attributes.price} kr</h3>
                 <div>
-                  <Button variant="modal" onClick={handleSelectService}>
-                    {t("contact-us")}
-                  </Button>
+                  <button
+                    className="primary-color-bg rounded px-8 py-3 text-white bg-blue-600 hover:bg-blue-500"
+                    onClick={handleAddToCart}
+                  >
+                    {t("add-to-cart")}
+                  </button>
                 </div>
               </div>
             </div>

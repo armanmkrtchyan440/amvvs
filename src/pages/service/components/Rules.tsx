@@ -21,8 +21,8 @@ export const Rules = () => {
       {isLoading && <Loading className="w-4 h-4" />}
       {!isLoading && (
         <>
-          <h3 className="text-2xl font-bold mb-2">{t("rules-title")}</h3>
-          <ul>
+          <h3 className="font-semibold">{t("rules-title")}</h3>
+          <ul className="list-disc list-inside ml-4">
             {data?.data.map(({ id, attributes }) => {
               return <li key={id}>{attributes.rule}</li>;
             })}

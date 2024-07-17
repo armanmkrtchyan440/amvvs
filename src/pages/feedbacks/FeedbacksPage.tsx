@@ -9,7 +9,7 @@ export const FeedbacksPage = () => {
       id="testimonials"
       className="code-section relative bg-white font-['Poppins']"
     >
-      <div className="container relative z-10 mx-auto px-4 pb-12 pt-16 sm:px-12 lg:pb-24 xl:px-32">
+      <div className="container relative z-10 pb-12 pt-16 lg:pb-24">
         <h2
           id="testimonials-header"
           className="mb-6 text-center text-3xl font-bold xl:text-4xl 2xl:text-5xl"

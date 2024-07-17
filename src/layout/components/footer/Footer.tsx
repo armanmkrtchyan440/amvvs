@@ -2,7 +2,7 @@ import { getServicesNames } from "@/api/api";
 import { Loading } from "@/components/ui/Loading";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const Footer = () => {
   const { t } = useTranslation(undefined, { keyPrefix: "footer" });
@@ -16,10 +16,7 @@ export const Footer = () => {
       className={`primary-color-bg primary-color-[50] code-section relative overflow-hidden py-16 font-['Poppins'] bg-blue-50`}
       id="o1xja"
     >
-      <div
-        id="footer"
-        className="container relative mx-auto px-4 pb-0 pt-36 sm:px-12 xl:px-32"
-      >
+      <div id="footer" className="container relative pb-0 pt-36">
         <div className="primary-color-border primary-color-[100] absolute -left-80 -top-14 h-[400px] w-[400px] rounded-full border-[60px] border-blue-100"></div>
         <div className="primary-color-border primary-color-[100] absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full border-[60px] border-blue-100"></div>
         <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden"></div>
@@ -37,21 +34,27 @@ export const Footer = () => {
           </div>
           <div id="footer-nav-links" className="mb-8 flex flex-col space-y-4">
             <div className="mb-8 text-2xl font-semibold">Navigation</div>
-            <Link to="/" className="text-gray-700">
+            <NavLink to="/" className="nav-link">
               {t("nav-links.home")}
-            </Link>
-            <Link to="/categories" className="text-gray-700">
-              {t("nav-links.categories")}
-            </Link>
-            <Link to="/services" className="text-gray-700">
-              {t("nav-links.services")}
-            </Link>
-            <Link to="/#about" className="text-gray-700">
+            </NavLink>
+            <NavLink to="/about-us" className="nav-link">
               {t("nav-links.aboutUs")}
-            </Link>
-            <Link to="/#testimonials" className="text-gray-700">
+            </NavLink>
+            <NavLink to="/categories" className="nav-link">
+              {t("nav-links.categories")}
+            </NavLink>
+            <NavLink to="/services" className="nav-link">
+              {t("nav-links.services")}
+            </NavLink>
+            <NavLink to="/blog" className="nav-link">
+              {t("nav-links.blog")}
+            </NavLink>
+            <NavLink to="/feedbacks" className="nav-link">
               {t("nav-links.feedback")}
-            </Link>
+            </NavLink>
+            <NavLink to="/career" className="nav-link">
+              {t("nav-links.career")}
+            </NavLink>
           </div>
           <div className="mb-8 flex flex-col space-y-4">
             <div className="mb-8 text-2xl font-semibold">Services</div>
@@ -62,12 +65,13 @@ export const Footer = () => {
               {isLoading && <Loading />}
               {!isLoading &&
                 data?.data.map((service) => (
-                  <Link
+                  <NavLink
                     to={`/services/${service.attributes.slug}`}
+                    className={"nav-link"}
                     key={service.id}
                   >
                     {service.attributes.name}
-                  </Link>
+                  </NavLink>
                 ))}
             </div>
           </div>
