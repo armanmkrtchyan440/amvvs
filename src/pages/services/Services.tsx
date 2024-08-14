@@ -93,7 +93,7 @@ export const ServicesPage = () => {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value={"all"}>All</SelectItem>
-                {categories?.data.map(({ id, attributes }) => (
+                {categories?.data?.map(({ id, attributes }) => (
                   <SelectItem key={id} value={attributes.slug}>
                     {attributes.name}
                   </SelectItem>

@@ -28,14 +28,14 @@ export const HomePage = () => {
                 id="hero-text"
                 className="mb-8 text-center text-4xl font-bold lg:text-left xl:text-5xl 2xl:text-6xl"
               >
-                <div id="hero-action-1">{t("hero.title.line1")}</div>
+                {/* <div id="hero-action-1">{t("hero.title.line1")}</div> */}
                 <div
                   id="hero-action-2"
                   className="primary-color-text text-blue-600"
                 >
                   {t("hero.title.line2")}
                 </div>
-                <div id="hero-action-3">{t("hero.title.line3")}</div>
+                {/* <div id="hero-action-3">{t("hero.title.line3")}</div> */}
               </motion.h1>
               <motion.p
                 initial={"initial"}
@@ -303,10 +303,10 @@ export const HomePage = () => {
                       <span id="call-to-action-button-text">Contact Us</span>
                     </a> */}
                     <LinkButton
-                      href="/contact-us"
+                      href="/services"
                       className="bg-white px-8 py-4 text-sm font-semibold text-blue-600 hover:bg-gray-100"
                     >
-                      {t("contact-us")}
+                      {t("quote")}
                     </LinkButton>
                   </div>
                 </div>

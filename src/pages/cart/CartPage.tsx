@@ -52,7 +52,7 @@ export const CartPage = () => {
                   htmlFor="one"
                   className="flex w-full justify-between items-center"
                 >
-                  <span>{t("rot-reduction")}</span>
+                  <span>{t("rot-deduction")}</span>
                   <input
                     id="one"
                     type="checkbox"

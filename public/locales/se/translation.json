@@ -1,213 +1,219 @@
 {
-  "contact-us": "Kontakta oss",
-  "header": {
-    "home": "Hem",
-    "categories": "Kategorier",
-    "services": "Tjänster",
-    "about-us": "Om oss",
-    "blog": "Blogg",
-    "portfolio": "Portfölj",
-    "feedback": "Återkoppling",
-    "contact-us": "Kontakta oss",
-    "career": "Karriär"
-  },
-  "home": {
-    "contact-us": "Kontakta oss",
-    "hero": {
-      "title": {
-        "line1": "Lös idag",
-        "line2": "Rörmokeri av hög kvalitet",
-        "line3": "Service Excellence"
-      },
-      "description": "AM VVS AB erbjuder professionella och pålitliga VVS-lösningar som tillgodoser alla dina vattensystems behov."
-    },
-    "quote": "Få offert",
-    "services": {
-      "title": "Våra tjänster inom rörmokeri",
-      "description": "Från rutinunderhåll till komplexa installationer - vårt team erbjuder ett brett utbud av VVS-tjänster som är skräddarsydda för att säkerställa din komfort och säkerhet.",
-      "service1": {
-        "title": "Expert Service",
-        "description": "Med våra omfattande servicealternativ tar vi itu med alla VVS-problem snabbt för att hålla ditt hem eller företag igång smidigt."
-      },
-      "service2": {
-        "title": "Varmvattenberedare",
-        "description": "Våra specialiserade tjänster omfattar underhåll, reparationer och installationer av varmvattenberedare, vilket ger dig oavbruten varmvattenförsörjning."
-      },
-      "service3": {
-        "title": "Renoveringar",
-        "description": "Skickliga byten av diskbänkar, armaturer och skåp för att föryngra ditt utrymme, allt med garanterad kvalitet och hållbarhet."
-      },
-      "service4": {
-        "title": "Reparationer av rör",
-        "description": "Vi tar oss an alla former av rörreparationer, från läckage till blockeringar, och säkerställer ett robust och effektivt rörsystem för våra kunder."
-      },
-      "service5": {
-        "title": "Badrumsarbete",
-        "description": "Vi erbjuder exklusiva badrumsinstallationer och uppgraderingar som förbättrar din personliga komfort."
-      },
-      "service6": {
-        "title": "Installation",
-        "description": "Våra tekniker installerar en mängd olika VVS-komponenter med precision och erbjuder oöverträffad service och långvariga resultat."
-      }
-    },
-    "call-to-action": {
-      "subheader": "Redo att agera?",
-      "header": "Begär VVS-service",
-      "subtext": "Låt inte VVS-utmaningar fördärva din dag. Kontakta oss nu för effektiv och pålitlig service."
-    },
-    "testimonials": {
-      "header": "Kundinsikt",
-      "subtext": "Verklig feedback från våra nöjda kunder som återspeglar vårt engagemang för service och kvalitet.",
-      "topic": "Exceptionellt arbete",
-      "quote": "AM VVS AB provided professional and detail-oriented service during our bathroom renovation. Truly top-notch!",
-      "name": "- John Smith",
-      "link": "Gå till Googles återkoppling "
-    },
-    "about": {
-      "header": "Om oss",
-      "paragraph1": "På AM VVS AB är vi ett team av certifierade VVS-proffs som är passionerat dedikerade till att lösa dina VVS-gåtor med överlägsen service och banbrytande lösningar.",
-      "list": {
-        "item1": "Vår kompetens inom ett brett utbud av VVS-tjänster säkerställer att vi är välutrustade för att hantera alla utmaningar, oavsett hur komplexa de är. ",
-        "item2": "Med fokus på kundnöjdhet har vi åtagit oss att leverera ett exceptionellt arbete i rätt tid, gång på gång.",
-        "item3": " Genom att investera i den senaste tekniken strävar vi efter att tillhandahålla miljövänliga och kostnadseffektiva VVS-lösningar som står emot tidens test."
-      },
-      "paragraph2": "Att välja AM VVS AB innebär att välja en partner som värdesätter din komfort och säkerhet, med en dokumenterad erfarenhet av att överträffa kundernas förväntningar."
-    }
-  },
+	"contact-us": "Kontakta oss",
+	"header": {
+		"home": "Hem",
+		"categories": "Kategorier",
+		"services": "Tjänster",
+		"about-us": "Om oss",
+		"blog": "Blogg",
+		"portfolio": "Portfölj",
+		"feedback": "Återkoppling",
+		"contact-us": "Kontakter",
+		"career": "Karriär"
+	},
+	"home": {
+		"contact-us": "Kontakta oss",
+		"hero": {
+			"title": {
+				"line1": "Lös idag",
+				"line2": "Rörmokeritjänster av högsta kvalitét",
+				"line3": "Service Excellence"
+			},
+			"description": "AM VVS AB erbjuder professionella och pålitliga VVS-lösningar som tillgodoser ditt vattensystemets alla behov"
+		},
+		"quote": "Få offert",
+		"services": {
+			"title": "Våra tjänster inom rörmokeri",
+			"description": "Från rutinunderhåll till komplexa installationer - vårt team erbjuder ett brett utbud av VVS-tjänster som är skräddarsydda för att säkerställa din komfort och säkerhet.",
+			"service1": {
+				"title": "Expert Service",
+				"description": "Med våra omfattande servicealternativ tar vi itu med alla VVS-problem snabbt för att hålla ditt hem eller företag igång smidigt."
+			},
+			"service2": {
+				"title": "Varmvattenberedare",
+				"description": "Våra specialiserade tjänster omfattar underhåll, reparationer och installationer av varmvattenberedare, vilket ger dig oavbruten varmvattenförsörjning."
+			},
+			"service3": {
+				"title": "Renoveringar",
+				"description": "Skickliga byten av diskbänkar, armaturer och skåp för att föryngra ditt utrymme, allt med garanterad kvalitet och hållbarhet."
+			},
+			"service4": {
+				"title": "Reparation av rör",
+				"description": "Vi tar oss an alla former av rörreparationer, från läckage till blockeringar, och säkerställer ett robust och effektivt rörsystem för våra kunder."
+			},
+			"service5": {
+				"title": "Badrumsarbete",
+				"description": "Vi erbjuder exklusiva badrumsinstallationer och uppgraderingar som förbättrar din personliga komfort."
+			},
+			"service6": {
+				"title": "Installation",
+				"description": "Våra tekniker installerar en mängd olika VVS-komponenter med precision och erbjuder oöverträffad service och långvariga resultat."
+			}
+		},
+		"call-to-action": {
+			"subheader": "Redo att agera?",
+			"header": "Begär VVS-service",
+			"subtext": "Låt inte VVS-utmaningar fördärva din dag. Kontakta oss nu för effektiv och pålitlig service."
+		},
+		"testimonials": {
+			"header": "Kundinsikt",
+			"subtext": "Verklig feedback från våra nöjda kunder som återspeglar vårt engagemang för service och kvalitet.",
+			"topic": "Exceptionellt arbete",
+			"quote": "AM VVS AB provided professional and detail-oriented service during our bathroom renovation. Truly top-notch!",
+			"name": "- John Smith",
+			"link": "Gå till Googles återkoppling "
+		},
+		"about": {
+			"header": "Om oss",
+			"paragraph1": "På AM VVS AB är vi ett team av certifierade VVS-proffs som är passionerat dedikerade till att lösa dina VVS-gåtor med överlägsen service och banbrytande lösningar.",
+			"list": {
+				"item1": "Vår kompetens inom ett brett utbud av VVS-tjänster säkerställer att vi är välutrustade för att hantera alla utmaningar, oavsett hur komplexa de är. ",
+				"item2": "Med fokus på kundnöjdhet har vi åtagit oss att leverera ett exceptionellt arbete i rätt tid, gång på gång.",
+				"item3": " Genom att investera i den senaste tekniken strävar vi efter att tillhandahålla miljövänliga och kostnadseffektiva VVS-lösningar som står emot tidens test."
+			},
+			"paragraph2": "Att välja AM VVS AB innebär att välja en partner som värdesätter din komfort och säkerhet, med en dokumenterad erfarenhet av att överträffa kundernas förväntningar."
+		}
+	},
 
-  "services": {
-    "title": "Våra tjänster inom rörmokeri"
-  },
+	"services": {
+		"title": "Våra tjänster inom rörmokeri"
+	},
 
-  "service": {
-    "contact-us": "Kontakta oss",
-    "rules-title": "Regler",
-    "view-service": "Visa tjänst",
-    "add-to-cart": "Lägg till i kundvagn"
-  },
+	"service": {
+		"contact-us": "Kontakta oss",
+		"rules-title": "Regler",
+		"view-service": "Visa tjänst",
+		"add-to-cart": "Lägg till i kundvagn"
+	},
 
-  "blog": {
-    "title": "Blogg"
-  },
+	"blog": {
+		"title": "Blogg"
+	},
 
-  "career": {
-    "title": "Bli en del av vårt VVS-team",
-    "description": "Vi letar efter begåvade medarbetare till vårt växande team.",
-    "current-job-openings": {
-      "title": "Aktuella lediga jobb",
-      "requirements": "Förutsättningar"
-    },
-    "why-work-with-us": {
-      "title": "Varför arbeta med oss?",
-      "salary-benefits": "Konkurrenskraftig lön och förmåner",
-      "career-advancement": "Möjligheter till karriärutveckling",
-      "friendly": "Vänlig och stödjande arbetsmiljö",
-      "training": "Löpande utbildning och professionell utveckling"
-    },
-    "job-apply": {
-      "title": "Ansök till ett jobb",
-      "name": {
-        "title": "Namn",
-        "error": "Skriv ditt namn"
-      },
-      "email": {
-        "title": "E-postadress",
-        "error": {
-          "email": "Skriv korrekt e-post",
-          "required": "Skriv din e-post"
-        }
-      },
-      "phone": {
-        "title": "Telefon",
-        "error": "Skriv ditt telefonnummer"
-      },
-      "message": {
-        "title": "Följebrev",
-        "error": "Max längd för meddelande 2500 bokstäver"
-      },
-      "resume": {
-        "title": "Meritförteckning"
-      },
-      "submit": "Skicka in ansökan"
-    }
-  },
+	"career": {
+		"title": "Bli en del av vårt VVS-team",
+		"description": "Vi letar efter begåvade medarbetare till vårt växande team.",
+		"current-job-openings": {
+			"title": "Aktuella lediga jobb",
+			"requirements": "Förutsättningar"
+		},
+		"why-work-with-us": {
+			"title": "Varför arbeta med oss?",
+			"salary-benefits": "Konkurrenskraftig lön och förmåner",
+			"career-advancement": "Möjligheter till karriärutveckling",
+			"friendly": "Vänlig och stödjande arbetsmiljö",
+			"training": "Löpande utbildning och professionell utveckling"
+		},
+		"job-apply": {
+			"title": "Ansök till ett jobb",
+			"name": {
+				"title": "Namn",
+				"error": "Skriv ditt namn"
+			},
+			"email": {
+				"title": "E-postadress",
+				"error": {
+					"email": "Skriv korrekt e-post",
+					"required": "Skriv din e-post"
+				}
+			},
+			"phone": {
+				"title": "Telefon",
+				"error": "Skriv ditt telefonnummer"
+			},
+			"message": {
+				"title": "Följebrev",
+				"error": "Max längd för meddelande 2500 bokstäver"
+			},
+			"resume": {
+				"title": "Meritförteckning"
+			},
+			"submit": "Skicka in ansökan"
+		}
+	},
 
-  "categories": {
-    "title": "Kategorier"
-  },
+	"categories": {
+		"title": "Kategorier"
+	},
 
-  "contact-form": {
-    "first-name": {
-      "title": "Förnamn",
-      "error": "Skriv ditt förnamn"
-    },
-    "last-name": {
-      "title": "Efternamn",
-      "error": "Skriv ditt efternamn"
-    },
-    "email": {
-      "title": "E-postadress",
-      "error": {
-        "email": "Skriv korrekt e-post",
-        "required": "Skriv din e-post"
-      }
-    },
-    "phone": {
-      "title": "Telefon",
-      "error": "Skriv ditt telefonnummer"
-    },
-    "service": {
-      "title": "Välj tjänst",
-      "error": "Välj tjänst vad du vill ha"
-    },
-    "message": {
-      "title": "Meddelande",
-      "error": "Max längd för meddelande 2500 bokstäver"
-    },
-    "files": {
-      "title": "Lägg till filer"
-    },
-    "submit": "Skicka meddelande"
-  },
+	"contact-form": {
+		"title": "Kontakter",
+		"name": {
+			"title": "Namn",
+			"error": "Skriv ditt namn"
+		},
+		"first-name": {
+			"title": "Förnamn",
+			"error": "Skriv ditt förnamn"
+		},
+		"last-name": {
+			"title": "Efternamn",
+			"error": "Skriv ditt efternamn"
+		},
+		"email": {
+			"title": "E-postadress",
+			"error": {
+				"email": "Skriv korrekt e-post",
+				"required": "Skriv din e-post"
+			}
+		},
+		"phone": {
+			"title": "Telefon",
+			"error": "Skriv ditt telefonnummer"
+		},
+		"service": {
+			"title": "Välj tjänst",
+			"error": "Välj tjänst vad du vill ha"
+		},
+		"message": {
+			"title": "Meddelande",
+			"error": "Max längd för meddelande 2500 bokstäver"
+		},
+		"files": {
+			"title": "Lägg till filer"
+		},
+		"submit": "Skicka meddelande"
+	},
 
-  "footer": {
-    "name-subtext": "AM VVS AB, din pålitliga källa för omfattande VVS-tjänster. Vi är fast beslutna att leverera excellens med varje jobb som utförs.",
-    "nav-links": {
-      "home": "Hem",
-      "categories": "Kategorier",
-      "services": "Tjänster",
-      "aboutUs": "Om oss",
-      "portfolio": "Portfölj",
-      "feedback": "Återkoppling",
-      "blog": "Blogg",
-      "career": "Karriär"
-    },
-    "contact-us": "Kontakta oss",
-    "address": "Stockholm, Sverige",
-    "copyright": "© AM VVS AB 2024."
-  },
+	"footer": {
+		"name-subtext": "AM VVS AB, din pålitliga källa för omfattande VVS-tjänster. Vi är fast beslutna att leverera excellens med varje jobb som utförs.",
+		"nav-links": {
+			"home": "Hem",
+			"contact-us": "Kontakter",
+			"categories": "Kategorier",
+			"services": "Tjänster",
+			"aboutUs": "Om oss",
+			"portfolio": "Portfölj",
+			"feedback": "Återkoppling",
+			"blog": "Blogg",
+			"career": "Karriär"
+		},
+		"contact-us": "Kontakta oss",
+		"address": "Stockholm, Sverige",
+		"copyright": "© AM VVS AB 2024."
+	},
 
-  "carts": {
-    "title": "Vagnar",
-    "empty-card": "Vagnen är tom",
-    "table": {
-      "name": "Namn",
-      "price": "Pris",
-      "quantity": "Kvantitet",
-      "total": "Totalt",
-      "actions": "Åtgärder"
-    },
-    "after-rot": "(Efter ROT)",
-    "rot-deduction": "ROT-avdrag",
-    "sub-total": "Subtotal",
-    "items": "föremål",
-    "complete": "Komplett bokning",
-    "increase": "{{name}} ökat med en",
-    "add": "{{name}} tillagd av en",
-    "decrease": "{{name}} minskade med en"
-  },
+	"carts": {
+		"title": "Vagnar",
+		"empty-card": "Vagnen är tom",
+		"table": {
+			"name": "Namn",
+			"price": "Pris",
+			"quantity": "Kvantitet",
+			"total": "Totalt",
+			"actions": "Åtgärder"
+		},
+		"after-rot": "(Efter ROT)",
+		"rot-deduction": "ROT-avdrag",
+		"sub-total": "Subtotal",
+		"items": "föremål",
+		"complete": "Komplett bokning",
+		"increase": "{{name}} ökat med en",
+		"add": "{{name}} tillagd av en",
+		"decrease": "{{name}} minskade med en"
+	},
 
-  "kassa": {
-    "title": "Din beställning"
-  }
+	"kassa": {
+		"title": "Din beställning"
+	}
 }
