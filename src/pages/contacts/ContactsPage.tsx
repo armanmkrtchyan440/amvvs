@@ -29,7 +29,7 @@ export const ContactsPage = () => {
 					message: yup.string().max(2500, t("message.error")).default(""),
 					files: yup.array().nullable().required(),
 				})
-				.required() as yup.ObjectSchema<ApplyContactsBody>,
+				.required(),
 		[t]
 	)
 

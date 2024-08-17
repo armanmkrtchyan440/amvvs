@@ -2,7 +2,7 @@ import { useCartItems } from "@/stores/useCartItems"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { FaCartShopping } from "react-icons/fa6"
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useLocation } from "react-router-dom"
 import sakervatten from "../img/sakervatten.png"
 
 export const Header = () => {
@@ -10,6 +10,7 @@ export const Header = () => {
 	const { cartItems } = useCartItems()
 	const headerRef = useRef<HTMLElement>(null)
 	const [isNavOpen, setIsNavOpen] = useState(false)
+	const location = useLocation()
 
 	const handleScroll = useCallback(() => {
 		if (window.scrollY >= 50) {
@@ -25,7 +26,11 @@ export const Header = () => {
 		return () => {
 			window.removeEventListener("scroll", handleScroll)
 		}
-	}, [])
+	}, [handleScroll])
+
+	useEffect(() => {
+		setIsNavOpen(false)
+	}, [location])
 
 	return (
 		<header
@@ -35,15 +40,12 @@ export const Header = () => {
 		>
 			<nav className="container relative z-10">
 				<div className="flex items-center justify-between">
-					<div className="w-52">
-						<Link id="nav-name-text" to="/" className="">
+					<div className="w-40">
+						<Link to="/" className="">
 							<img src="/logo-black.png" alt="" />
 						</Link>
 					</div>
-					<div
-						id="nav-links"
-						className="hidden items-center space-x-8 text-sm md:flex lg:text-base"
-					>
+					<div className="hidden items-center space-x-8 text-sm lg:flex lg:text-base">
 						<div>
 							<img src={sakervatten} className="w-16" alt="" />
 						</div>
@@ -68,26 +70,29 @@ export const Header = () => {
 						<NavLink to="/feedbacks" className="nav-link">
 							{t("feedback")}
 						</NavLink>
+						<NavLink to="/career" className="nav-link">
+							{t("career")}
+						</NavLink>
 					</div>
 					<div
 						id="nav-cta"
-						className="hidden items-center space-x-4 text-sm md:flex lg:text-base"
+						className="hidden items-center space-x-4 text-sm lg:flex lg:text-base"
 					>
 						<div id="nav-cta-button">
 							{/* <Button variant="modal" className="text-xs uppercase">
                 {t("contact-us")}
               </Button> */}
 							<Link to={"/cart"} className="relative">
-								<span className="flex justify-center items-center absolute -top-1 -right-1 w-4 h-4 bg-blue-600 rounded-full text-[8px] text-white">
+								<span className="flex justify-center items-center absolute -top-1 -right-1 w-3 h-3 bg-blue-600 rounded-full text-[8px] text-white">
 									{cartItems.length}
 								</span>
-								<FaCartShopping className="text-4xl" />
+								<FaCartShopping className="text-3xl" />
 							</Link>
 						</div>
 					</div>
 					<div
 						id="mobile-menu-icon"
-						className="flex items-center md:hidden"
+						className="flex items-center lg:hidden"
 						onClick={() => setIsNavOpen(prev => !prev)}
 					>
 						<button
@@ -115,7 +120,7 @@ export const Header = () => {
 				</div>
 				<div
 					id="nav-links-mobile"
-					className={`mt-4 ${!isNavOpen ? "hidden" : ""} md:hidden`}
+					className={`mt-4 ${!isNavOpen ? "hidden" : ""} lg:hidden`}
 				>
 					<div className="absolute w-full left-0 z-10 flex flex-col space-y-2 bg-white pb-4 text-center text-lg">
 						<NavLink to="/" className="nav-link">

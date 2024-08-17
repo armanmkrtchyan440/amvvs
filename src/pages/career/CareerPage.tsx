@@ -27,7 +27,7 @@ export const CareerPage = () => {
 				</div>
 				{isLoading && <Loading />}
 
-				{!isLoading && !!data?.data.length && (
+				{!isLoading && !!data?.data?.length && (
 					<section className="mb-12">
 						<h2 className="text-2xl font-bold mb-8">
 							{t("current-job-openings.title")}

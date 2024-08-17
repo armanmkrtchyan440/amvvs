@@ -8,7 +8,7 @@
 		"blog": "Blogg",
 		"portfolio": "Portfölj",
 		"feedback": "Återkoppling",
-		"contact-us": "Kontakter",
+		"contact-us": "Kontakta oss",
 		"career": "Karriär"
 	},
 	"home": {
@@ -21,7 +21,7 @@
 			},
 			"description": "AM VVS AB erbjuder professionella och pålitliga VVS-lösningar som tillgodoser ditt vattensystemets alla behov"
 		},
-		"quote": "Få offert",
+		"quote": "Tjänster",
 		"services": {
 			"title": "Våra tjänster inom rörmokeri",
 			"description": "Från rutinunderhåll till komplexa installationer - vårt team erbjuder ett brett utbud av VVS-tjänster som är skräddarsydda för att säkerställa din komfort och säkerhet.",
@@ -179,7 +179,7 @@
 		"name-subtext": "AM VVS AB, din pålitliga källa för omfattande VVS-tjänster. Vi är fast beslutna att leverera excellens med varje jobb som utförs.",
 		"nav-links": {
 			"home": "Hem",
-			"contact-us": "Kontakter",
+			"contact-us": "Kontakta oss",
 			"categories": "Kategorier",
 			"services": "Tjänster",
 			"aboutUs": "Om oss",

@@ -7,7 +7,7 @@
 		"blog": "Blog",
 		"portfolio": "Portfolio",
 		"feedback": "Feedback",
-		"contact-us": "Contacts",
+		"contact-us": "Contact Us",
 		"career": "Career"
 	},
 	"home": {
@@ -20,7 +20,7 @@
 			},
 			"description": "AM VVS AB offers professional and reliable plumbing solutions that cater to all your water systems' needs."
 		},
-		"quote": "Get Quote",
+		"quote": "Services",
 		"services": {
 			"title": "Our Plumbing Services",
 			"description": "From routine maintenance to complex installations, our team provides a wide range of plumbing services tailored to ensure your comfort and safety.",

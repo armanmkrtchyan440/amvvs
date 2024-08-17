@@ -2,7 +2,7 @@ import { getServicesNames } from "@/api/api"
 import { Loading } from "@/components/ui/Loading"
 import { useQuery } from "@tanstack/react-query"
 import { useTranslation } from "react-i18next"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import id06Logo from "../img/id06.png"
 import sakervattenLogo from "../img/sakervatten.png"
 import tryggHansaLogo from "../img/trygg-hansa.png"
@@ -23,11 +23,11 @@ export const Footer = () => {
 				<div className="primary-color-border primary-color-[100] absolute -left-80 -top-14 h-[400px] w-[400px] rounded-full border-[60px] border-blue-100"></div>
 				<div className="primary-color-border primary-color-[100] absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full border-[60px] border-blue-100"></div>
 				<div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden"></div>
-				<div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5">
+				<div className="relative z-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-5">
 					<div className="mb-8 flex flex-col space-y-4">
-						<a id="footer-brand-name" href="/" className="w-52">
+						<Link to="/" className="w-40">
 							<img src="/logo-black.png" alt="" />
-						</a>
+						</Link>
 						<div
 							id="footer-name-subtext"
 							className="text-gray-700 2xl:pr-[30%]"
@@ -36,7 +36,7 @@ export const Footer = () => {
 						</div>
 					</div>
 					<div id="footer-nav-links" className="mb-8 flex flex-col space-y-4">
-						<div className="mb-8 text-2xl font-semibold">Navigation</div>
+						<div className="mb-8 text-lg font-semibold">Navigation</div>
 						<NavLink to="/" className="nav-link">
 							{t("nav-links.home")}
 						</NavLink>
@@ -63,7 +63,7 @@ export const Footer = () => {
 						</NavLink>
 					</div>
 					<div className="mb-8 flex flex-col space-y-4">
-						<div className="mb-8 text-2xl font-semibold">Services</div>
+						<div className="mb-8 text-lg font-semibold">Services</div>
 						<div
 							id="footer-services"
 							className="flex flex-col space-y-4 text-gray-700"
@@ -81,44 +81,39 @@ export const Footer = () => {
 								))}
 						</div>
 					</div>
-					<div
-						id="footer-contact-info"
-						className="mb-8 flex flex-col space-y-4"
-					>
-						<div className="mb-8 text-2xl font-semibold">{t("contact-us")}</div>
+					<div className="mb-8 flex flex-col space-y-4">
+						<div className="mb-8 text-lg font-semibold">{t("contact-us")}</div>
 						<div className="flex flex-row">
 							<div className="flex h-10 w-10 items-center justify-center rounded-full p-2">
-								<i className="primary-color-text fa-regular fa-phone text-xl text-blue-600"></i>
+								<i className="primary-color-text fa-regular fa-phone text-sm text-blue-600"></i>
 							</div>
 							<a
 								href="tel:+46728529999"
 								id="footer-phone-number"
-								className="flex items-center"
+								className="text-sm flex items-center"
 							>
 								+46 728 529 999
 							</a>
 						</div>
 						<div className="flex flex-row">
 							<div className="flex h-10 w-10 items-center justify-center rounded-full p-2">
-								<i className="primary-color-text fa-regular fa-envelope text-xl text-blue-600"></i>
+								<i className="primary-color-text fa-regular fa-envelope text-sm text-blue-600"></i>
 							</div>
-							<div id="footer-email" className="flex items-center">
+							<div id="footer-email" className="flex items-center text-sm">
 								<a href="mailto:info@amvvsbygg.se">info@amvvsbygg.se</a>
 							</div>
 						</div>
 						<div className="flex flex-row">
 							<div className="flex h-10 w-10 items-center justify-center rounded-full p-2">
-								<i className="primary-color-text fa-regular fa-location-dot text-xl text-blue-600"></i>
+								<i className="primary-color-text fa-regular fa-location-dot text-sm text-blue-600"></i>
 							</div>
-							<div id="footer-location" className="flex items-center">
-								{t("address")}
-							</div>
+							<div className="text-sm flex items-center">{t("address")}</div>
 						</div>
 					</div>
 					<div className="mb-8 flex flex-col space-y-4 text-gray-700">
-						<img src={sakervattenLogo} className="w-28" />
-						<img src={tryggHansaLogo} className="w-40" />
-						<img src={id06Logo} className="w-40" />
+						<img src={sakervattenLogo} className="w-20" />
+						<img src={tryggHansaLogo} className="w-36" />
+						<img src={id06Logo} className="w-36" />
 					</div>
 				</div>
 				<p
