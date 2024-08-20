@@ -9,7 +9,7 @@ import PhoneInput from "react-phone-number-input/react-hook-form-input"
 import { toast } from "react-toastify"
 import * as yup from "yup"
 
-export const ContactsPage = () => {
+export const QuotePage = () => {
 	const { t } = useTranslation(undefined, { keyPrefix: "contact-form" })
 
 	const schema = useMemo(
@@ -183,6 +183,7 @@ export const ContactsPage = () => {
 							{getValues("files").length < 3 && (
 								<button
 									type="button"
+									className="px-8 py-4 border transition-shadow hover:shadow"
 									onClick={() => fileInpRef.current?.click()}
 								>
 									{t("files.title")}

@@ -7,7 +7,7 @@
 		"blog": "Blog",
 		"portfolio": "Portfolio",
 		"feedback": "Feedback",
-		"contact-us": "Contact Us",
+		"quote": "Quote",
 		"career": "Career"
 	},
 	"home": {
@@ -20,7 +20,8 @@
 			},
 			"description": "AM VVS AB offers professional and reliable plumbing solutions that cater to all your water systems' needs."
 		},
-		"quote": "Services",
+		"service": "Services",
+		"quote": "Get Quote",
 		"services": {
 			"title": "Our Plumbing Services",
 			"description": "From routine maintenance to complex installations, our team provides a wide range of plumbing services tailored to ensure your comfort and safety.",
@@ -82,6 +83,7 @@
 		"contact-us": "Contact Us",
 		"rules-title": "Rules",
 		"view-service": "View Service",
+		"removal": "Removal",
 		"add-to-cart": "Add To Cart"
 	},
 
@@ -136,7 +138,7 @@
 	},
 
 	"contact-form": {
-		"title": "Contacts",
+		"title": "Get A Quote",
 		"name": {
 			"title": "Name",
 			"error": "Write your name"
@@ -172,9 +174,10 @@
 
 	"footer": {
 		"name-subtext": "AM VVS AB, your trusted source for comprehensive plumbing services. We're committed to delivering excellence with each job undertaken.",
+		"navigation": "Navigation",
 		"nav-links": {
 			"home": "Home",
-			"contact-us": "Contacts",
+			"quote": "Quote",
 			"categories": "Categories",
 			"services": "Services",
 			"aboutUs": "About Us",
@@ -201,6 +204,7 @@
 		"after-rot": "(After ROT)",
 		"rot-deduction": "ROT deduction",
 		"sub-total": "Sub-Total",
+		"removal": "Removal",
 		"items": "items",
 		"complete": "Complete Booking",
 		"increase": "{{name}} increased by one",
@@ -210,5 +214,11 @@
 
 	"kassa": {
 		"title": "Your order"
+	},
+
+	"not-found": {
+		"title": "Something's missing.",
+		"description": "Sorry, we can't find that page. You'll find lots to explore on the home page.",
+		"link": "Home"
 	}
 }

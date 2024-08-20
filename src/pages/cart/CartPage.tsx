@@ -4,6 +4,7 @@ import { useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 import { CartItem } from "./components/CartItem"
+import { MobileCartItem } from "./components/MobileCartItem"
 
 export const CartPage = () => {
 	const { t } = useTranslation(undefined, { keyPrefix: "carts" })
@@ -12,7 +13,10 @@ export const CartPage = () => {
 
 	const subtotal = useMemo(() => {
 		const total = cartItems.reduce(
-			(prev, cart) => prev + cart.price * cart.quantity,
+			(prev, cart) =>
+				prev +
+				cart.price * cart.quantity +
+				cart.bortforsling * cart.bortforslingQuantity,
 			0
 		)
 		return rot ? calculateRot(total) : total
@@ -28,7 +32,7 @@ export const CartPage = () => {
 
 				{cartItems.length !== 0 && (
 					<>
-						<div className="overflow-x-auto">
+						<div className="overflow-x-auto hidden md:block">
 							<table className="cart-items-table ">
 								<thead>
 									<tr>
@@ -41,10 +45,15 @@ export const CartPage = () => {
 								</thead>
 								<tbody>
 									{cartItems.map(cart => (
-										<CartItem key={cart.id} {...cart} />
+										<CartItem key={cart.uid} {...cart} />
 									))}
 								</tbody>
 							</table>
+						</div>
+						<div className="grid grid-cols-1 gap-4 md:hidden">
+							{cartItems.map(cart => (
+								<MobileCartItem key={cart.uid} {...cart} />
+							))}
 						</div>
 						<div className="w-full max-w-60 mt-5 ml-auto">
 							<div className="border-b py-3">

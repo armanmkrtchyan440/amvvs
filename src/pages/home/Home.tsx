@@ -1,10 +1,13 @@
 import { Animate } from "@/components/animate"
 import { LinkButton } from "@/components/ui/LinkButton"
 import { useTranslation } from "react-i18next"
+import { useParams } from "react-router-dom"
 import { businessManImg, heroImg, serviceImg } from "./images/homeImg"
 
 export const HomePage = () => {
 	const { t } = useTranslation(undefined, { keyPrefix: "home" })
+
+	const { lang } = useParams()
 
 	return (
 		<>
@@ -26,8 +29,11 @@ export const HomePage = () => {
 								type="left-to-right"
 								className="mb-12 text-center lg:text-left"
 							>
-								<LinkButton href="/services" className="px-5 text-xs uppercase">
-									{t("quote")}
+								<LinkButton
+									href={`/${lang}/services`}
+									className="px-5 text-xs uppercase"
+								>
+									{t("service")}
 								</LinkButton>
 							</Animate>
 						</div>
@@ -186,8 +192,8 @@ export const HomePage = () => {
 										</Animate>
 										<Animate type="left-to-right">
 											<LinkButton
-												href="/services"
-												className="bg-white px-8 py-4 text-sm font-semibold text-blue-600 hover:bg-gray-100"
+												href={`/${lang}/quote`}
+												className="bg-white px-8 py-4 text-sm font-semibold text-blue-600 hover:bg-gray-100 uppercase"
 											>
 												{t("quote")}
 											</LinkButton>

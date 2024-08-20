@@ -7,8 +7,8 @@
 		"about-us": "Om oss",
 		"blog": "Blogg",
 		"portfolio": "Portfölj",
-		"feedback": "Återkoppling",
-		"contact-us": "Kontakta oss",
+		"feedback": "Recensioner",
+		"quote": "Offert",
 		"career": "Karriär"
 	},
 	"home": {
@@ -21,7 +21,8 @@
 			},
 			"description": "AM VVS AB erbjuder professionella och pålitliga VVS-lösningar som tillgodoser ditt vattensystemets alla behov"
 		},
-		"quote": "Tjänster",
+		"service": "Tjänster",
+		"quote": "Få Offert",
 		"services": {
 			"title": "Våra tjänster inom rörmokeri",
 			"description": "Från rutinunderhåll till komplexa installationer - vårt team erbjuder ett brett utbud av VVS-tjänster som är skräddarsydda för att säkerställa din komfort och säkerhet.",
@@ -59,9 +60,9 @@
 			"header": "Kundinsikt",
 			"subtext": "Verklig feedback från våra nöjda kunder som återspeglar vårt engagemang för service och kvalitet.",
 			"topic": "Exceptionellt arbete",
-			"quote": "AM VVS AB provided professional and detail-oriented service during our bathroom renovation. Truly top-notch!",
-			"name": "- John Smith",
-			"link": "Gå till Googles återkoppling "
+			"quote": "Vi renoverade barummmet med hjälp av AM VVS. Arbetet gjordes snabbt och proffsigt. Vi är mycket nöjda med resultatet. Tack Ashot för ditt trevliga och hjälpsamma bemötande! Vi kan varmt rekomendera AM VVS.",
+			"name": "- Jens Antonsson",
+			"link": "Gå till Googles recensioner"
 		},
 		"about": {
 			"header": "Om oss",
@@ -83,6 +84,7 @@
 		"contact-us": "Kontakta oss",
 		"rules-title": "Regler",
 		"view-service": "Visa tjänst",
+		"removal": "Bortforsling",
 		"add-to-cart": "Lägg till i kundvagn"
 	},
 
@@ -122,11 +124,11 @@
 				"error": "Skriv ditt telefonnummer"
 			},
 			"message": {
-				"title": "Följebrev",
+				"title": "Personlig brev",
 				"error": "Max längd för meddelande 2500 bokstäver"
 			},
 			"resume": {
-				"title": "Meritförteckning"
+				"title": "CV"
 			},
 			"submit": "Skicka in ansökan"
 		}
@@ -137,7 +139,7 @@
 	},
 
 	"contact-form": {
-		"title": "Kontakter",
+		"title": "Få offert",
 		"name": {
 			"title": "Namn",
 			"error": "Skriv ditt namn"
@@ -177,25 +179,26 @@
 
 	"footer": {
 		"name-subtext": "AM VVS AB, din pålitliga källa för omfattande VVS-tjänster. Vi är fast beslutna att leverera excellens med varje jobb som utförs.",
+		"navigation": "Navigering",
 		"nav-links": {
 			"home": "Hem",
-			"contact-us": "Kontakta oss",
+			"quote": "Offert",
 			"categories": "Kategorier",
 			"services": "Tjänster",
 			"aboutUs": "Om oss",
 			"portfolio": "Portfölj",
-			"feedback": "Återkoppling",
+			"feedback": "Recensioner",
 			"blog": "Blogg",
 			"career": "Karriär"
 		},
 		"contact-us": "Kontakta oss",
-		"address": "Stockholm, Sverige",
+		"address": "Hornsgatan 79, 118 49 Stockholm",
 		"copyright": "© AM VVS AB 2024."
 	},
 
 	"carts": {
-		"title": "Vagnar",
-		"empty-card": "Vagnen är tom",
+		"title": "Varukorg",
+		"empty-card": "Varukorgen är tom",
 		"table": {
 			"name": "Namn",
 			"price": "Pris",
@@ -205,7 +208,8 @@
 		},
 		"after-rot": "(Efter ROT)",
 		"rot-deduction": "ROT-avdrag",
-		"sub-total": "Subtotal",
+		"sub-total": "Totalbelopp",
+		"removal": "Bortforsling",
 		"items": "föremål",
 		"complete": "Komplett bokning",
 		"increase": "{{name}} ökat med en",
@@ -215,5 +219,11 @@
 
 	"kassa": {
 		"title": "Din beställning"
+	},
+
+	"not-found": {
+		"title": "Det är något som saknas.",
+		"description": "Tyvärr, vi kan inte hitta den sidan. Du hittar mycket att utforska på startsidan.",
+		"link": "Hem"
 	}
 }

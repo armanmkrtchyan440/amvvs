@@ -1,16 +1,37 @@
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/ui/select"
 import { useCartItems } from "@/stores/useCartItems"
-import { useCallback, useEffect, useRef, useState } from "react"
+import {
+	MouseEventHandler,
+	useCallback,
+	useEffect,
+	useRef,
+	useState,
+} from "react"
 import { useTranslation } from "react-i18next"
 import { FaCartShopping } from "react-icons/fa6"
-import { Link, NavLink, useLocation } from "react-router-dom"
+import {
+	Link,
+	NavLink,
+	useLocation,
+	useNavigate,
+	useParams,
+} from "react-router-dom"
 import sakervatten from "../img/sakervatten.png"
 
 export const Header = () => {
-	const { t } = useTranslation(undefined, { keyPrefix: "header" })
+	const { t, i18n } = useTranslation(undefined, { keyPrefix: "header" })
 	const { cartItems } = useCartItems()
-	const headerRef = useRef<HTMLElement>(null)
 	const [isNavOpen, setIsNavOpen] = useState(false)
 	const location = useLocation()
+	const navigate = useNavigate()
+	const { lang } = useParams()
+	const headerRef = useRef<HTMLElement>(null)
 
 	const handleScroll = useCallback(() => {
 		if (window.scrollY >= 50) {
@@ -20,17 +41,40 @@ export const Header = () => {
 		}
 	}, [])
 
+	const handleChangeLanguage = useCallback(
+		(lang: string) => {
+			const pathArr = location.pathname.split("/")
+			pathArr[1] = lang
+			navigate(pathArr.join("/") + location.search, { replace: true })
+		},
+		[location, navigate]
+	)
+
+	const handleWindowClick = useCallback(() => {
+		setIsNavOpen(false)
+	}, [])
+
+	const handleNavOpen = useCallback<MouseEventHandler<HTMLButtonElement>>(e => {
+		e.stopPropagation()
+		setIsNavOpen(prev => !prev)
+	}, [])
+
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll)
-
+		window.addEventListener("click", handleWindowClick)
 		return () => {
 			window.removeEventListener("scroll", handleScroll)
+			window.removeEventListener("click", handleWindowClick)
 		}
-	}, [handleScroll])
+	}, [handleScroll, handleWindowClick])
 
 	useEffect(() => {
 		setIsNavOpen(false)
 	}, [location])
+
+	useEffect(() => {
+		i18n.changeLanguage(lang)
+	}, [i18n, lang, navigate])
 
 	return (
 		<header
@@ -41,38 +85,50 @@ export const Header = () => {
 			<nav className="container relative z-10">
 				<div className="flex items-center justify-between">
 					<div className="w-40">
-						<Link to="/" className="">
+						<Link to={`/${lang}`} className="">
 							<img src="/logo-black.png" alt="" />
 						</Link>
 					</div>
 					<div className="hidden items-center space-x-8 text-sm lg:flex lg:text-base">
-						<div>
-							<img src={sakervatten} className="w-16" alt="" />
-						</div>
-						<NavLink to="/" className="nav-link">
+						<a
+							href="https://sakervatten.se/company/1233072/am-vvs-och-bygg-ab/"
+							target="_blank"
+						>
+							<img src={sakervatten} className="w-16" alt="Sakervatten" />
+						</a>
+						<NavLink end to={`/${lang}`} className="nav-link" hrefLang={lang}>
 							{t("home")}
 						</NavLink>
-						<NavLink to="/about-us" className="nav-link">
+						<NavLink to={`/${lang}/about-us`} className="nav-link">
 							{t("about-us")}
 						</NavLink>
-						<NavLink to="/contacts" className="nav-link">
-							{t("contact-us")}
+						<NavLink to={`/${lang}/quote`} className="nav-link">
+							{t("quote")}
 						</NavLink>
-						<NavLink to="/categories" className="nav-link">
+						<NavLink to={`/${lang}/categories`} className="nav-link">
 							{t("categories")}
 						</NavLink>
-						<NavLink to="/services" className="nav-link">
+						<NavLink to={`/${lang}/services`} className="nav-link">
 							{t("services")}
 						</NavLink>
-						<NavLink to="/blog" className="nav-link">
+						<NavLink to={`/${lang}/blog`} className="nav-link">
 							{t("blog")}
 						</NavLink>
-						<NavLink to="/feedbacks" className="nav-link">
+						<NavLink to={`/${lang}/feedbacks`} className="nav-link">
 							{t("feedback")}
 						</NavLink>
-						<NavLink to="/career" className="nav-link">
+						<NavLink to={`/${lang}/career`} className="nav-link">
 							{t("career")}
 						</NavLink>
+						<Select onValueChange={handleChangeLanguage} value={lang}>
+							<SelectTrigger className="w-20">
+								<SelectValue placeholder="" />
+							</SelectTrigger>
+							<SelectContent className="min-w-0">
+								<SelectItem value="en">en</SelectItem>
+								<SelectItem value="sv">sv</SelectItem>
+							</SelectContent>
+						</Select>
 					</div>
 					<div
 						id="nav-cta"
@@ -82,8 +138,8 @@ export const Header = () => {
 							{/* <Button variant="modal" className="text-xs uppercase">
                 {t("contact-us")}
               </Button> */}
-							<Link to={"/cart"} className="relative">
-								<span className="flex justify-center items-center absolute -top-1 -right-1 w-3 h-3 bg-blue-600 rounded-full text-[8px] text-white">
+							<Link to={`/${lang}/cart`} className="relative">
+								<span className="flex justify-center items-center absolute -top-1 -right-1 w-4 h-4 bg-blue-600 rounded-full text-[10px] text-white">
 									{cartItems.length}
 								</span>
 								<FaCartShopping className="text-3xl" />
@@ -92,12 +148,34 @@ export const Header = () => {
 					</div>
 					<div
 						id="mobile-menu-icon"
-						className="flex items-center lg:hidden"
-						onClick={() => setIsNavOpen(prev => !prev)}
+						className="flex items-center gap-5 lg:hidden"
 					>
+						<Select onValueChange={handleChangeLanguage} value={lang}>
+							<SelectTrigger className="w-20">
+								<SelectValue placeholder="" />
+							</SelectTrigger>
+							<SelectContent className="min-w-0">
+								<SelectItem value="en">en</SelectItem>
+								<SelectItem value="sv">sv</SelectItem>
+							</SelectContent>
+						</Select>
+						<div id="nav-cta" className="flex items-center space-x-4 text-sm">
+							<div id="nav-cta-button">
+								{/* <Button variant="modal" className="text-xs uppercase">
+                {t("contact-us")}
+              </Button> */}
+								<Link to={`/${lang}/cart`} className="relative">
+									<span className="flex justify-center items-center absolute -top-1 -right-1 w-4 h-4 bg-blue-600 rounded-full text-[10px] text-white">
+										{cartItems.length}
+									</span>
+									<FaCartShopping className="text-3xl" />
+								</Link>
+							</div>
+						</div>
 						<button
 							className="text-gray-800"
 							aria-label="Navigation Dropdown Menu"
+							onClick={handleNavOpen}
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -123,25 +201,25 @@ export const Header = () => {
 					className={`mt-4 ${!isNavOpen ? "hidden" : ""} lg:hidden`}
 				>
 					<div className="absolute w-full left-0 z-10 flex flex-col space-y-2 bg-white pb-4 text-center text-lg">
-						<NavLink to="/" className="nav-link">
+						<NavLink end to={`/${lang}/`} className="nav-link">
 							{t("home")}
 						</NavLink>
-						<NavLink to="/about-us" className="nav-link">
+						<NavLink to={`/${lang}/about-us`} className="nav-link">
 							{t("about-us")}
 						</NavLink>
-						<NavLink to="/contacts" className="nav-link">
-							{t("contact-us")}
+						<NavLink to={`/${lang}/quote`} className="nav-link">
+							{t("quote")}
 						</NavLink>
-						<NavLink to="/categories" className="nav-link">
+						<NavLink to={`/${lang}/categories`} className="nav-link">
 							{t("categories")}
 						</NavLink>
-						<NavLink to="/services" className="nav-link">
+						<NavLink to={`/${lang}/services`} className="nav-link">
 							{t("services")}
 						</NavLink>
-						<NavLink to="/blog" className="nav-link">
+						<NavLink to={`/${lang}/blog`} className="nav-link">
 							{t("blog")}
 						</NavLink>
-						<NavLink to="/feedback" className="nav-link">
+						<NavLink to={`/${lang}/feedback`} className="nav-link">
 							{t("feedback")}
 						</NavLink>
 					</div>

@@ -28,7 +28,11 @@ export interface IService {
 	description: string
 	price: number
 	img: IResponse<IResponseData<{ url: string }>>
+	category: IResponse<IResponseData<ICategory>>
 	slug: string
+	bortforsling: number
+	locale: string
+	localizations: IResponse<IResponseData<{ slug: string; locale: string }>[]>
 }
 
 export interface ICategory {
@@ -36,6 +40,8 @@ export interface ICategory {
 	description: string
 	slug: string
 	img: IResponse<IResponseData<{ url: string }>>
+	localizations: IResponse<IResponseData<{ slug: string; locale: string }>[]>
+	locale: string
 }
 
 export interface IRule {
@@ -81,51 +87,44 @@ export async function getOurProjects() {
 	return (await response.json()) as IResponse<IResponseData<IOurProjects>[]>
 }
 
-export async function getServices(category: string) {
-	let categoryQuery = ""
+export async function getServices(category: string, lang: string) {
+	// let categoryQuery = ""
 
-	if (category !== "all") {
-		categoryQuery = `filters[category][slug][$eq]=${category}`
+	// if (category !== "all") {
+	// 	categoryQuery = `filters[category][slug][$eq]=${category}`
+	// }
+
+	const response = await fetch(
+		`${import.meta.env.VITE_BASE_URL}/api/services?locale=${lang}&populate=*`
+	)
+	return (await response.json()) as IResponse<IResponseData<IService>[]>
+}
+
+export async function getService(id?: string, lang?: string) {
+	const response = await fetch(
+		`${import.meta.env.VITE_BASE_URL}/api/services/${id}?locale=${lang}`
+	)
+
+	if (!response.ok) {
+		throw new Response("Service not found", { status: response.status })
 	}
 
-	const response = await fetch(
-		`${import.meta.env.VITE_BASE_URL}/api/services?populate=*&${categoryQuery}`
-	)
-	return (await response.json()) as IResponse<IResponseData<IService>[]>
-}
-
-export async function getServicesNames(options: ApiParam) {
-	const [_, limit] = options.queryKey
-
-	const response = await fetch(
-		`${
-			import.meta.env.VITE_BASE_URL
-		}/api/services?fields[0]=name&fields[1]=slug&pagination[limit]=${
-			limit || 25
-		}`
-	)
-	return (await response.json()) as IResponse<IResponseData<IService>[]>
-}
-
-export async function getService(options: ApiParam) {
-	const [_, id] = options.queryKey
-	const response = await fetch(
-		`${import.meta.env.VITE_BASE_URL}/api/services/${id}?populate=*`
-	)
 	return (await response.json()) as IResponse<IResponseData<IService>>
 }
 
-export async function getCategories() {
+export async function getCategories(lang: string) {
 	const response = await fetch(
 		`${
 			import.meta.env.VITE_BASE_URL
-		}/api/categories?populate=img&filters[services][name][$contains]=`
+		}/api/categories?locale=${lang}&populate=*&filters[services][name][$contains]=`
 	)
 	return (await response.json()) as IResponse<IResponseData<ICategory>[]>
 }
 
-export async function getRules() {
-	const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/rules`)
+export async function getRules(lang: string) {
+	const response = await fetch(
+		`${import.meta.env.VITE_BASE_URL}/api/rules?locale=${lang}&`
+	)
 	return (await response.json()) as IResponse<IResponseData<IRule>[]>
 }
 
@@ -142,15 +141,17 @@ export async function createQuote(body: FormData) {
 	return await response.json()
 }
 
-export async function getBlogs() {
+export async function getBlogs(lang: string) {
 	const response = await fetch(
-		`${import.meta.env.VITE_BASE_URL}/api/blogs?populate=*`
+		`${import.meta.env.VITE_BASE_URL}/api/blogs?locale=${lang}&populate=*`
 	)
 	return (await response.json()) as IResponse<IResponseData<IBlog>[]>
 }
 
-export async function getJobs() {
-	const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/jobs`)
+export async function getJobs(lang: string) {
+	const response = await fetch(
+		`${import.meta.env.VITE_BASE_URL}/api/jobs?locale=${lang}&`
+	)
 	return (await response.json()) as IResponse<IResponseData<IJob>[]>
 }
 

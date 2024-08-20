@@ -1,34 +1,73 @@
-import { IService, getService } from "@/api/api"
+import { getService } from "@/api/api"
 import { Loading } from "@/components/ui/Loading"
-import { useCartItems } from "@/stores/useCartItems"
+import { AddCartItemType, useCartItems } from "@/stores/useCartItems"
 import { calculateRot } from "@/utils/calculateRot"
 import { useQuery } from "@tanstack/react-query"
-import { useCallback } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { Rules } from "./components/Rules"
 
 export const ServicePage = () => {
 	const { t } = useTranslation(undefined, { keyPrefix: "service" })
 	const { addCartItem } = useCartItems()
-	const { id } = useParams()
-
-	const { data, isLoading } = useQuery({
+	const { lang, id } = useParams()
+	const { data, isLoading, isError } = useQuery({
 		queryKey: ["service", id],
-		queryFn: getService,
+		queryFn: () => getService(id, lang),
 		refetchOnWindowFocus: false,
+		retry: false,
+		throwOnError: true,
 	})
 
+	const navigate = useNavigate()
+
+	const [bortforslingCount, setBortforslingCount] = useState<number>(0)
+
+	const price = useMemo(
+		() =>
+			(data?.data?.attributes?.price as number) +
+			(data?.data.attributes.bortforsling as number) * bortforslingCount,
+		[data, bortforslingCount]
+	)
+
 	const handleAddToCart = useCallback(() => {
-		addCartItem(data?.data.id as number, data?.data.attributes as IService)
-	}, [addCartItem, data])
+		addCartItem(
+			data?.data.id as number,
+			{
+				...data?.data.attributes,
+				bortforslingQuantity: bortforslingCount,
+			} as AddCartItemType
+		)
+	}, [addCartItem, data, bortforslingCount])
+
+	const handleMinusBortforslingCount = useCallback(() => {
+		setBortforslingCount(prev => (prev > 0 ? prev - 1 : prev))
+	}, [])
+
+	const handlePlusBortforslingCount = useCallback(() => {
+		setBortforslingCount(prev => prev + 1)
+	}, [])
+
+	useEffect(() => {
+		if (
+			data?.data?.attributes?.locale &&
+			lang != data?.data?.attributes?.locale
+		) {
+			console.log(data?.data?.attributes.localizations.data)
+			navigate(
+				`/${lang}/services/${data.data?.attributes.localizations.data[0].attributes.slug}`,
+				{ replace: true }
+			)
+		}
+	}, [data, lang, navigate])
 
 	return (
 		<section className="code-section bg-white py-20 font-['Poppins'] min-h-96">
 			<div className="mx-auto px-4 sm:px-12 xl:px-32 min-h-">
 				{isLoading && <Loading />}
 
-				{!isLoading && (
+				{!isLoading && !isError && (
 					<div className="flex flex-col md:flex-row -mx-4">
 						<div className="md:flex-1 px-4">
 							<div className="h-[460px] rounded-lg">
@@ -52,17 +91,45 @@ export const ServicePage = () => {
 								</p>
 								<Rules />
 							</div>
-							<div className="flex justify-between items-center">
-								<h3 className="text-lg">
-									{calculateRot(data?.data?.attributes?.price as number)} kr
-								</h3>
+							<div className="flex flex-col gap-5">
 								<div>
-									<button
-										className="primary-color-bg rounded px-8 py-3 text-white bg-blue-600 hover:bg-blue-500"
-										onClick={handleAddToCart}
-									>
-										{t("add-to-cart")}
-									</button>
+									<div className="w-min flex justify-between items-center py-4 gap-2 ml-auto">
+										<div>
+											<h3>{t("removal")}</h3>
+											<span>
+												{calculateRot(
+													data?.data.attributes.bortforsling as number
+												)}
+												:-/st
+											</span>
+										</div>
+										<div className="flex justify-center items-center gap-5">
+											<button
+												className="quantity-button"
+												onClick={handleMinusBortforslingCount}
+											>
+												-
+											</button>
+											<span>{bortforslingCount}</span>
+											<button
+												className="quantity-button"
+												onClick={handlePlusBortforslingCount}
+											>
+												+
+											</button>
+										</div>
+									</div>
+								</div>
+								<div className="flex justify-between items-center">
+									<h3 className="text-lg">{calculateRot(price)} kr</h3>
+									<div>
+										<button
+											className="primary-color-bg rounded px-8 py-3 text-white bg-blue-600 hover:bg-blue-500"
+											onClick={handleAddToCart}
+										>
+											{t("add-to-cart")}
+										</button>
+									</div>
 								</div>
 							</div>
 						</div>

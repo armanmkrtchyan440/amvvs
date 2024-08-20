@@ -1,6 +1,8 @@
 import { PageLoader } from "@/components/ui/PageLoader"
-import { Suspense, lazy } from "react"
-import { createBrowserRouter } from "react-router-dom"
+import { ErrorPage } from "@/pages/ErrorPage"
+import { NotFoundPage } from "@/pages/NotFoundPage"
+import { lazy, Suspense } from "react"
+import { createBrowserRouter, Navigate } from "react-router-dom"
 
 const Layout = lazy(() =>
 	import("@/layout/Layout").then(({ Layout }) => ({ default: Layout }))
@@ -57,20 +59,21 @@ const CareerPage = lazy(() =>
 	}))
 )
 
-const ContactsPage = lazy(() =>
-	import("@/pages/contacts/ContactsPage").then(({ ContactsPage }) => ({
-		default: ContactsPage,
+const QuotePage = lazy(() =>
+	import("@/pages/quote/QuotePage").then(({ QuotePage }) => ({
+		default: QuotePage,
 	}))
 )
 
 export const router = createBrowserRouter([
 	{
-		path: "/",
+		path: "/:lang",
 		element: (
 			<Suspense fallback={<PageLoader />}>
 				<Layout />
 			</Suspense>
 		),
+		errorElement: <ErrorPage />,
 		children: [
 			{
 				path: "",
@@ -79,6 +82,7 @@ export const router = createBrowserRouter([
 						<HomePage />
 					</Suspense>
 				),
+				errorElement: <ErrorPage />,
 			},
 			{
 				path: "about-us",
@@ -87,6 +91,7 @@ export const router = createBrowserRouter([
 						<AboutUsPage />
 					</Suspense>
 				),
+				errorElement: <ErrorPage />,
 			},
 			{
 				path: "feedbacks",
@@ -95,6 +100,7 @@ export const router = createBrowserRouter([
 						<FeedbacksPage />
 					</Suspense>
 				),
+				errorElement: <ErrorPage />,
 			},
 			{
 				path: "services",
@@ -103,6 +109,7 @@ export const router = createBrowserRouter([
 						<ServicesPage />
 					</Suspense>
 				),
+				errorElement: <ErrorPage />,
 			},
 			{
 				path: "services/:id",
@@ -111,6 +118,7 @@ export const router = createBrowserRouter([
 						<ServicePage />
 					</Suspense>
 				),
+				errorElement: <ErrorPage />,
 			},
 			{
 				path: "categories",
@@ -119,6 +127,7 @@ export const router = createBrowserRouter([
 						<CategoriesPage />
 					</Suspense>
 				),
+				errorElement: <ErrorPage />,
 			},
 			{
 				path: "cart",
@@ -127,6 +136,7 @@ export const router = createBrowserRouter([
 						<CartPage />
 					</Suspense>
 				),
+				errorElement: <ErrorPage />,
 			},
 			{
 				path: "kassa",
@@ -135,6 +145,7 @@ export const router = createBrowserRouter([
 						<KassaPage />
 					</Suspense>
 				),
+				errorElement: <ErrorPage />,
 			},
 			{
 				path: "blog",
@@ -143,6 +154,7 @@ export const router = createBrowserRouter([
 						<BlogPage />
 					</Suspense>
 				),
+				errorElement: <ErrorPage />,
 			},
 			{
 				path: "career",
@@ -151,15 +163,25 @@ export const router = createBrowserRouter([
 						<CareerPage />
 					</Suspense>
 				),
+				errorElement: <ErrorPage />,
 			},
 			{
-				path: "contacts",
+				path: "quote",
 				element: (
 					<Suspense fallback={<PageLoader />}>
-						<ContactsPage />
+						<QuotePage />
 					</Suspense>
 				),
+				errorElement: <ErrorPage />,
+			},
+			{
+				path: "*",
+				element: <NotFoundPage />,
 			},
 		],
+	},
+	{
+		path: "*",
+		element: <Navigate to={"/sv"} />,
 	},
 ])

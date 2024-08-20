@@ -2,14 +2,16 @@ import { getJobs } from "@/api/api"
 import { Loading } from "@/components/ui/Loading"
 import { useQuery } from "@tanstack/react-query"
 import { useTranslation } from "react-i18next"
+import { useParams } from "react-router-dom"
 import { CareerForm } from "./components/CareerForm"
 
 export const CareerPage = () => {
 	const { t } = useTranslation(undefined, { keyPrefix: "career" })
+	const { lang } = useParams()
 
 	const { data, isLoading } = useQuery({
-		queryKey: ["categories"],
-		queryFn: getJobs,
+		queryKey: ["categories", lang],
+		queryFn: () => getJobs(lang as string),
 		refetchOnWindowFocus: false,
 	})
 

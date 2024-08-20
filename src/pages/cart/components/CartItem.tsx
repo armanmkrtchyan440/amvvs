@@ -4,16 +4,27 @@ import { FC, useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import { RiDeleteBin7Fill } from "react-icons/ri"
 
-export const CartItem: FC<CartItemType> = ({ id, name, price, quantity }) => {
+export const CartItem: FC<CartItemType> = ({
+	name,
+	price,
+	quantity,
+	uid,
+	bortforsling,
+	bortforslingQuantity,
+}) => {
 	const { t } = useTranslation(undefined, { keyPrefix: "carts" })
 
 	const { incrementQuantity, decrementQuantity, deleteCartItem, rot } =
 		useCartItems()
 
 	const rotPrice = useMemo(
-		() => (rot ? calculateRot(price) : price),
-		[rot, price]
+		() =>
+			rot
+				? calculateRot(price + bortforsling * bortforslingQuantity)
+				: price + bortforsling * bortforslingQuantity,
+		[rot, price, bortforsling, bortforslingQuantity]
 	)
+
 	const rotTotalPrice = useMemo(() => rotPrice * quantity, [rotPrice, quantity])
 
 	return (
@@ -26,14 +37,14 @@ export const CartItem: FC<CartItemType> = ({ id, name, price, quantity }) => {
 				<div className="flex justify-center items-center gap-5">
 					<button
 						className="quantity-button"
-						onClick={() => decrementQuantity(id)}
+						onClick={() => decrementQuantity(uid)}
 					>
 						-
 					</button>
 					<span>{quantity}</span>
 					<button
 						className="quantity-button"
-						onClick={() => incrementQuantity(id)}
+						onClick={() => incrementQuantity(uid)}
 					>
 						+
 					</button>
@@ -44,7 +55,7 @@ export const CartItem: FC<CartItemType> = ({ id, name, price, quantity }) => {
 			</td>
 			<td>
 				<button className="w-10 h-10 flex justify-center items-center mx-auto">
-					<RiDeleteBin7Fill onClick={() => deleteCartItem(id)} />
+					<RiDeleteBin7Fill onClick={() => deleteCartItem(uid)} />
 				</button>
 			</td>
 		</tr>

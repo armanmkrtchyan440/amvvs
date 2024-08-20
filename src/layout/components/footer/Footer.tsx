@@ -1,19 +1,20 @@
-import { getServicesNames } from "@/api/api"
-import { Loading } from "@/components/ui/Loading"
-import { useQuery } from "@tanstack/react-query"
 import { useTranslation } from "react-i18next"
-import { Link, NavLink } from "react-router-dom"
+import {
+	FaEnvelope,
+	FaFacebookF,
+	FaInstagram,
+	FaLocationDot,
+	FaPhone,
+} from "react-icons/fa6"
+import { Link, NavLink, useParams } from "react-router-dom"
 import id06Logo from "../img/id06.png"
 import sakervattenLogo from "../img/sakervatten.png"
 import tryggHansaLogo from "../img/trygg-hansa.png"
 
 export const Footer = () => {
 	const { t } = useTranslation(undefined, { keyPrefix: "footer" })
-	const { data, isLoading } = useQuery({
-		queryKey: ["footer-services", "5"],
-		queryFn: getServicesNames,
-		refetchOnWindowFocus: false,
-	})
+	const { lang } = useParams()
+
 	return (
 		<footer
 			className={`primary-color-bg primary-color-[50] code-section relative overflow-hidden py-16 font-['Poppins'] bg-blue-50`}
@@ -23,9 +24,9 @@ export const Footer = () => {
 				<div className="primary-color-border primary-color-[100] absolute -left-80 -top-14 h-[400px] w-[400px] rounded-full border-[60px] border-blue-100"></div>
 				<div className="primary-color-border primary-color-[100] absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full border-[60px] border-blue-100"></div>
 				<div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden"></div>
-				<div className="relative z-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-5">
+				<div className="relative z-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
 					<div className="mb-8 flex flex-col space-y-4">
-						<Link to="/" className="w-40">
+						<Link to={`/${lang}`} className="w-40">
 							<img src="/logo-black.png" alt="" />
 						</Link>
 						<div
@@ -36,82 +37,115 @@ export const Footer = () => {
 						</div>
 					</div>
 					<div id="footer-nav-links" className="mb-8 flex flex-col space-y-4">
-						<div className="mb-8 text-lg font-semibold">Navigation</div>
-						<NavLink to="/" className="nav-link">
-							{t("nav-links.home")}
-						</NavLink>
-						<NavLink to="/about-us" className="nav-link">
-							{t("nav-links.aboutUs")}
-						</NavLink>
-						<NavLink to="/contacts" className="nav-link">
-							{t("nav-links.contact-us")}
-						</NavLink>
-						<NavLink to="/categories" className="nav-link">
-							{t("nav-links.categories")}
-						</NavLink>
-						<NavLink to="/services" className="nav-link">
-							{t("nav-links.services")}
-						</NavLink>
-						<NavLink to="/blog" className="nav-link">
-							{t("nav-links.blog")}
-						</NavLink>
-						<NavLink to="/feedbacks" className="nav-link">
-							{t("nav-links.feedback")}
-						</NavLink>
-						<NavLink to="/career" className="nav-link">
-							{t("nav-links.career")}
-						</NavLink>
-					</div>
-					<div className="mb-8 flex flex-col space-y-4">
-						<div className="mb-8 text-lg font-semibold">Services</div>
-						<div
-							id="footer-services"
-							className="flex flex-col space-y-4 text-gray-700"
-						>
-							{isLoading && <Loading />}
-							{!isLoading &&
-								data?.data?.map(service => (
-									<NavLink
-										to={`/services/${service.attributes.slug}`}
-										className={"nav-link"}
-										key={service.id}
-									>
-										{service.attributes.name}
-									</NavLink>
-								))}
+						<div className="mb-8 text-lg font-semibold">{t("navigation")}</div>
+						<div className="grid grid-cols-2 gap-y-3 gap-x-10">
+							<NavLink end to={`/${lang}/`} className="nav-link">
+								{t("nav-links.home")}
+							</NavLink>
+							<NavLink to={`/${lang}/about-us`} className="nav-link">
+								{t("nav-links.aboutUs")}
+							</NavLink>
+							<NavLink to={`/${lang}/quote`} className="nav-link">
+								{t("nav-links.quote")}
+							</NavLink>
+							<NavLink to={`/${lang}/categories`} className="nav-link">
+								{t("nav-links.categories")}
+							</NavLink>
+							<NavLink to={`/${lang}/services`} className="nav-link">
+								{t("nav-links.services")}
+							</NavLink>
+							<NavLink to={`/${lang}/blog`} className="nav-link">
+								{t("nav-links.blog")}
+							</NavLink>
+							<NavLink to={`/${lang}/feedbacks`} className="nav-link">
+								{t("nav-links.feedback")}
+							</NavLink>
+							<NavLink to="/career" className="nav-link">
+								{t("nav-links.career")}
+							</NavLink>
 						</div>
 					</div>
+
 					<div className="mb-8 flex flex-col space-y-4">
 						<div className="mb-8 text-lg font-semibold">{t("contact-us")}</div>
-						<div className="flex flex-row">
-							<div className="flex h-10 w-10 items-center justify-center rounded-full p-2">
-								<i className="primary-color-text fa-regular fa-phone text-sm text-blue-600"></i>
+						<div className="flex flex-col gap-2 items-start">
+							<div className="flex flex-row items-center gap-2">
+								<div className="flex items-center justify-center rounded-full p-2">
+									{/* <i className="primary-color-text fa-regular fa-phone text-sm text-blue-600"></i> */}
+									<FaPhone size={16} color="#2563eb" />
+								</div>
+								<div className="flex flex-col gap-2">
+									<a
+										href="tel:+46859115333"
+										id="footer-phone-number"
+										className="text-sm flex items-center"
+									>
+										+46 859 115 333
+									</a>
+									<a
+										href="tel:+46728529999"
+										id="footer-phone-number"
+										className="text-sm flex items-center"
+									>
+										+46 728 529 999
+									</a>
+								</div>
 							</div>
-							<a
-								href="tel:+46728529999"
-								id="footer-phone-number"
-								className="text-sm flex items-center"
-							>
-								+46 728 529 999
-							</a>
-						</div>
-						<div className="flex flex-row">
-							<div className="flex h-10 w-10 items-center justify-center rounded-full p-2">
-								<i className="primary-color-text fa-regular fa-envelope text-sm text-blue-600"></i>
+							<div className="flex flex-row items-center gap-2">
+								<div className="flex items-center justify-center rounded-full p-2">
+									{/* <i className="primary-color-text fa-regular fa-envelope text-sm text-blue-600"></i> */}
+									<FaEnvelope size={16} color="#2563eb" />
+								</div>
+								<div id="footer-email" className="flex items-center text-sm">
+									<a href="mailto:info@amvvsbygg.se">info@amvvsbygg.se</a>
+								</div>
 							</div>
-							<div id="footer-email" className="flex items-center text-sm">
-								<a href="mailto:info@amvvsbygg.se">info@amvvsbygg.se</a>
+							<div className="flex flex-row items-center gap-2">
+								<div className="flex items-center justify-center rounded-full p-2">
+									{/* <i className="primary-color-text fa-regular fa-location-dot text-sm text-blue-600"></i> */}
+									<FaLocationDot size={16} color="#2563eb" />
+								</div>
+								<a
+									href="https://maps.app.goo.gl/5UvEmjwZwRwaTgpY7"
+									target="_blank"
+									className="text-sm flex items-center"
+								>
+									{t("address")}
+								</a>
 							</div>
-						</div>
-						<div className="flex flex-row">
-							<div className="flex h-10 w-10 items-center justify-center rounded-full p-2">
-								<i className="primary-color-text fa-regular fa-location-dot text-sm text-blue-600"></i>
+							<div className="flex flex-row items-center gap-2">
+								<div className="flex items-center justify-center rounded-full p-2">
+									<FaFacebookF size={16} color="#2563eb" />
+								</div>
+								<a
+									href="https://maps.app.goo.gl/5UvEmjwZwRwaTgpY7"
+									target="_blank"
+									className="text-sm flex items-center"
+								>
+									AM VVS AB
+								</a>
 							</div>
-							<div className="text-sm flex items-center">{t("address")}</div>
+							<div className="flex flex-row items-center gap-2">
+								<div className="flex items-center justify-center rounded-full p-2">
+									<FaInstagram size={16} color="#2563eb" />
+								</div>
+								<a
+									href="https://www.instagram.com/am_vvs_ab"
+									target="_blank"
+									className="text-sm flex items-center"
+								>
+									am_vvs_ab
+								</a>
+							</div>
 						</div>
 					</div>
 					<div className="mb-8 flex flex-col space-y-4 text-gray-700">
-						<img src={sakervattenLogo} className="w-20" />
+						<a
+							href="https://sakervatten.se/company/1233072/am-vvs-och-bygg-ab/"
+							target="_blank"
+						>
+							<img src={sakervattenLogo} className="w-20" />
+						</a>
 						<img src={tryggHansaLogo} className="w-36" />
 						<img src={id06Logo} className="w-36" />
 					</div>

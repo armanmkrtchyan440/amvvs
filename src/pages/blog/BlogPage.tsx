@@ -2,14 +2,17 @@ import { getBlogs } from "@/api/api"
 import { Loading } from "@/components/ui/Loading"
 import { useQuery } from "@tanstack/react-query"
 import { useTranslation } from "react-i18next"
+import { useParams } from "react-router-dom"
 import { BlogItem } from "./components/BlogItem"
 
 export const BlogPage = () => {
 	const { t } = useTranslation(undefined, { keyPrefix: "blog" })
 
+	const { lang } = useParams()
+
 	const { data, isLoading } = useQuery({
-		queryKey: ["blogs"],
-		queryFn: getBlogs,
+		queryKey: ["blogs", lang],
+		queryFn: () => getBlogs(lang as string),
 		refetchOnWindowFocus: false,
 	})
 
