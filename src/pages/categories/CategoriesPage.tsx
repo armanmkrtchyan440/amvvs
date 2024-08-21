@@ -1,6 +1,7 @@
 import { getCategories } from "@/api/api"
 import { Loading } from "@/components/ui/Loading"
 import { useQuery } from "@tanstack/react-query"
+import { Helmet } from "react-helmet"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 import { CategoryItem } from "./components/CategoryItem"
@@ -17,6 +18,9 @@ export const CategoriesPage = () => {
 
 	return (
 		<section className="code-section bg-white py-20 font-['Poppins']">
+			<Helmet>
+				<title>{t("title")}</title>
+			</Helmet>
 			<div className="container">
 				<h2
 					id="services-header"

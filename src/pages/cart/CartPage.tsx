@@ -2,7 +2,7 @@ import { useCartItems } from "@/stores/useCartItems"
 import { calculateRot } from "@/utils/calculateRot"
 import { useMemo } from "react"
 import { useTranslation } from "react-i18next"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { CartItem } from "./components/CartItem"
 import { MobileCartItem } from "./components/MobileCartItem"
 
@@ -10,6 +10,7 @@ export const CartPage = () => {
 	const { t } = useTranslation(undefined, { keyPrefix: "carts" })
 
 	const { cartItems, rot, toggleRot } = useCartItems()
+	const { lang } = useParams()
 
 	const subtotal = useMemo(() => {
 		const total = cartItems.reduce(
@@ -88,7 +89,7 @@ export const CartPage = () => {
 								</tbody>
 							</table>
 							<Link
-								to={"/kassa"}
+								to={`/${lang}/kassa`}
 								className="block text-center primary-color-bg rounded px-8 py-3 text-white bg-blue-600 hover:bg-blue-500 mt-5 w-full"
 							>
 								{t("complete")}

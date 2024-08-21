@@ -16,8 +16,13 @@ export const HomePage = () => {
 					<div className="relative z-10 flex flex-col items-center lg:flex-row">
 						<div className="mt-12 w-full lg:mt-24 lg:w-[55%] lg:pr-14">
 							<Animate type="left-to-right">
-								<h1 className="primary-color-text text-blue-600 mb-8 text-center text-3xl font-bold lg:text-left xl:text-5xl 2xl:text-6xl">
-									{t("hero.title.line2")}
+								<h1 className="mb-8 text-center font-bold lg:text-left flex flex-col gap-5">
+									<span className="text-gray-700 text-xl xl:text-2xl 2xl:text-3xl">
+										{t("hero.title.line1")}
+									</span>
+									<span className="primary-color-text text-blue-600 text-3xl xl:text-5xl 2xl:text-6xl">
+										{t("hero.title.line2")}
+									</span>
 								</h1>
 							</Animate>
 							<Animate type="left-to-right">

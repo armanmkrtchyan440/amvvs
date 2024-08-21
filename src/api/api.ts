@@ -87,13 +87,7 @@ export async function getOurProjects() {
 	return (await response.json()) as IResponse<IResponseData<IOurProjects>[]>
 }
 
-export async function getServices(category: string, lang: string) {
-	// let categoryQuery = ""
-
-	// if (category !== "all") {
-	// 	categoryQuery = `filters[category][slug][$eq]=${category}`
-	// }
-
+export async function getServices(lang: string) {
 	const response = await fetch(
 		`${import.meta.env.VITE_BASE_URL}/api/services?locale=${lang}&populate=*`
 	)

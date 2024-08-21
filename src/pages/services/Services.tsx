@@ -13,6 +13,7 @@ import {
 	SelectValue,
 } from "@/components/ui/select"
 import { useCallback, useEffect, useMemo, useState } from "react"
+import { Helmet } from "react-helmet"
 
 export const ServicesPage = () => {
 	const { t } = useTranslation(undefined, { keyPrefix: "services" })
@@ -24,7 +25,7 @@ export const ServicesPage = () => {
 
 	const { data, isLoading } = useQuery({
 		queryKey: ["services", lang],
-		queryFn: () => getServices(category, lang as string),
+		queryFn: () => getServices(lang as string),
 		refetchOnWindowFocus: false,
 	})
 
@@ -72,6 +73,9 @@ export const ServicesPage = () => {
 
 	return (
 		<section className="code-section bg-white py-20 font-['Poppins']">
+			<Helmet>
+				<title>{t("title")}</title>
+			</Helmet>
 			<div className="container px-4 sm:px-12 ">
 				<h2
 					id="services-header"

@@ -219,8 +219,11 @@ export const Header = () => {
 						<NavLink to={`/${lang}/blog`} className="nav-link">
 							{t("blog")}
 						</NavLink>
-						<NavLink to={`/${lang}/feedback`} className="nav-link">
+						<NavLink to={`/${lang}/feedbacks`} className="nav-link">
 							{t("feedback")}
+						</NavLink>
+						<NavLink to={`/${lang}/career`} className="nav-link">
+							{t("career")}
 						</NavLink>
 					</div>
 				</div>

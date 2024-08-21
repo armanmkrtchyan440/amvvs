@@ -4,9 +4,11 @@ import { AddCartItemType, useCartItems } from "@/stores/useCartItems"
 import { calculateRot } from "@/utils/calculateRot"
 import { useQuery } from "@tanstack/react-query"
 import { useCallback, useEffect, useMemo, useState } from "react"
+import { Helmet } from "react-helmet"
 import { useTranslation } from "react-i18next"
+import Markdown from "react-markdown"
 import { useNavigate, useParams } from "react-router-dom"
-import { Rules } from "./components/Rules"
+import remarkGfm from "remark-gfm"
 
 export const ServicePage = () => {
 	const { t } = useTranslation(undefined, { keyPrefix: "service" })
@@ -69,6 +71,9 @@ export const ServicePage = () => {
 
 				{!isLoading && !isError && (
 					<div className="flex flex-col md:flex-row -mx-4">
+						<Helmet>
+							<title>{data?.data.attributes.name}</title>
+						</Helmet>
 						<div className="md:flex-1 px-4">
 							<div className="h-[460px] rounded-lg">
 								<img
@@ -86,10 +91,43 @@ export const ServicePage = () => {
 								<h2 className="text-2xl font-bold mb-2">
 									{data?.data.attributes.name}
 								</h2>
-								<p className="text-sm mt-2">
+								<Markdown
+									remarkPlugins={[remarkGfm]}
+									components={{
+										ul: props => (
+											<ul {...props} className="list-disc list-inside ml-4" />
+										),
+										ol: props => (
+											<ol
+												{...props}
+												className="list-decimal list-inside ml-4"
+											/>
+										),
+										a: props => (
+											<a
+												{...props}
+												className="text-blue-600 hover:text-blue-500 transition"
+											/>
+										),
+										h2: props => (
+											<h2 {...props} className="text-xl font-bold" />
+										),
+										h3: props => (
+											<h3 {...props} className="text-lg font-bold" />
+										),
+										h4: props => (
+											<h4 {...props} className="text-base font-bold" />
+										),
+										h5: props => (
+											<h5 {...props} className="text-sm font-bold" />
+										),
+										h6: props => (
+											<h6 {...props} className="text-xs font-bold" />
+										),
+									}}
+								>
 									{data?.data.attributes.description}
-								</p>
-								<Rules />
+								</Markdown>
 							</div>
 							<div className="flex flex-col gap-5">
 								<div>

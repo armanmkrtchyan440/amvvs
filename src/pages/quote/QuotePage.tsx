@@ -3,6 +3,7 @@ import { Loading } from "@/components/ui/Loading"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useMutation } from "@tanstack/react-query"
 import { ChangeEventHandler, useCallback, useMemo, useRef } from "react"
+import { Helmet } from "react-helmet"
 import { SubmitHandler, useFieldArray, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import PhoneInput from "react-phone-number-input/react-hook-form-input"
@@ -98,6 +99,9 @@ export const QuotePage = () => {
 
 	return (
 		<section className="code-section bg-white py-20 font-['Poppins']">
+			<Helmet>
+				<title>{t("title")}</title>
+			</Helmet>
 			<div className="container">
 				<h2 className="mb-8 text-center text-3xl font-bold xl:text-4xl 2xl:text-5xl">
 					{t("title")}

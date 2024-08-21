@@ -60,7 +60,7 @@ export const Footer = () => {
 							<NavLink to={`/${lang}/feedbacks`} className="nav-link">
 								{t("nav-links.feedback")}
 							</NavLink>
-							<NavLink to="/career" className="nav-link">
+							<NavLink to={`/${lang}/career`} className="nav-link">
 								{t("nav-links.career")}
 							</NavLink>
 						</div>
@@ -118,7 +118,7 @@ export const Footer = () => {
 									<FaFacebookF size={16} color="#2563eb" />
 								</div>
 								<a
-									href="https://maps.app.goo.gl/5UvEmjwZwRwaTgpY7"
+									href="https://www.facebook.com/profile.php?id=61556048230860"
 									target="_blank"
 									className="text-sm flex items-center"
 								>

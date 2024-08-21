@@ -1,17 +1,10 @@
 import { IService } from "@/api/api"
 import { calculateRot } from "@/utils/calculateRot"
 import { FC } from "react"
-import { useTranslation } from "react-i18next"
 import { Link, useParams } from "react-router-dom"
 
-export const ServiceItem: FC<IService> = ({
-	name,
-	description,
-	price,
-	img,
-	slug,
-}) => {
-	const { t } = useTranslation(undefined, { keyPrefix: "service" })
+export const ServiceItem: FC<IService> = ({ name, price, img, slug }) => {
+	// const { t } = useTranslation(undefined, { keyPrefix: "service" })
 
 	const { lang } = useParams()
 
@@ -26,8 +19,7 @@ export const ServiceItem: FC<IService> = ({
 					/>
 				</div>
 				<div className="rounded-b-3xl bg-white p-6">
-					<div className="text-2xl font-bold">{name}</div>
-					<div className="text-lg font-thin text-gray-600">{description}</div>
+					<h2 className="text-2xl font-bold">{name}</h2>
 				</div>
 				<div className="p-6 mt-auto">
 					<div className="w-full h-0.5 bg-gray-300"></div>

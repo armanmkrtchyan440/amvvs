@@ -13,8 +13,7 @@ export const MobileCartItem: FC<CartItemType> = ({
 }) => {
 	const { t } = useTranslation(undefined, { keyPrefix: "carts" })
 
-	const { incrementQuantity, decrementQuantity, deleteCartItem, rot } =
-		useCartItems()
+	const { incrementQuantity, decrementQuantity, rot } = useCartItems()
 
 	const rotPrice = useMemo(
 		() =>

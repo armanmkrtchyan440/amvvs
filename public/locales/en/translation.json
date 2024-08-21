@@ -14,8 +14,8 @@
 		"contact-us": "Contact Us",
 		"hero": {
 			"title": {
-				"line1": "Solve Today",
-				"line2": "Quality Plumbing",
+				"line1": "Our policy is",
+				"line2": "If you are in time, you are already late",
 				"line3": "Service Excellence"
 			},
 			"description": "AM VVS AB offers professional and reliable plumbing solutions that cater to all your water systems' needs."
@@ -35,7 +35,7 @@
 			},
 			"service3": {
 				"title": "Renovations",
-				"description": "Skillful change-outs of sinks, fixtures, and cabinetry to rejuvenate your space, all with guaranteed quality and durability."
+				"description": "Skillful replacements of sinks, fixtures and cabinets to modernize  your space, all with guaranteed quality and durability"
 			},
 			"service4": {
 				"title": "Pipe Repairs",
