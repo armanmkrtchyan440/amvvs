@@ -57,7 +57,7 @@
 			"subtext": "Låt inte VVS-utmaningar fördärva din dag. Kontakta oss nu för effektiv och pålitlig service."
 		},
 		"testimonials": {
-			"header": "Kundinsikt",
+			"header": "Kundåsikt",
 			"subtext": "Verklig feedback från våra nöjda kunder som återspeglar vårt engagemang för service och kvalitet.",
 			"topic": "Exceptionellt arbete",
 			"quote": "Vi renoverade barummmet med hjälp av AM VVS. Arbetet gjordes snabbt och proffsigt. Vi är mycket nöjda med resultatet. Tack Ashot för ditt trevliga och hjälpsamma bemötande! Vi kan varmt rekomendera AM VVS.",
@@ -77,7 +77,8 @@
 	},
 
 	"services": {
-		"title": "Våra tjänster inom rörmokeri"
+		"title": "Våra tjänster inom rörmokeri",
+		"all": "Alla"
 	},
 
 	"service": {
@@ -211,7 +212,7 @@
 		"sub-total": "Totalbelopp",
 		"removal": "Bortforsling",
 		"items": "föremål",
-		"complete": "Komplett bokning",
+		"complete": "Slutför bokning",
 		"increase": "{{name}} ökat med en",
 		"add": "{{name}} tillagd av en",
 		"decrease": "{{name}} minskade med en"
@@ -225,5 +226,9 @@
 		"title": "Det är något som saknas.",
 		"description": "Tyvärr, vi kan inte hitta den sidan. Du hittar mycket att utforska på startsidan.",
 		"link": "Hem"
+	},
+	"cookie": {
+		"text": "Denna webbplats använder cookies för att förbättra användarupplevelsen",
+		"button-text": "Jag förstår"
 	}
 }

@@ -1,3 +1,4 @@
+import { CookieModal } from "@/components/CookieModal"
 import { useEffect } from "react"
 import { Helmet } from "react-helmet"
 import {
@@ -72,6 +73,7 @@ export const Layout = () => {
 				<Outlet />
 			</main>
 			<Footer />
+			<CookieModal />
 			<ScrollRestoration />
 		</div>
 	)

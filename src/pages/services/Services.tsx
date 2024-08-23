@@ -18,6 +18,7 @@ import { Helmet } from "react-helmet"
 export const ServicesPage = () => {
 	const { t } = useTranslation(undefined, { keyPrefix: "services" })
 	const [searchParams, setSearchParams] = useSearchParams()
+	const [isSelectOpened, setIsSelectOpened] = useState<boolean>(false)
 	const [category, setCategory] = useState<string>(
 		searchParams.get("category") || "all"
 	)
@@ -39,8 +40,8 @@ export const ServicesPage = () => {
 
 	const handleCategoryChange = useCallback(
 		(value: string) => {
-			searchParams.set("category", value as string)
 			setCategory(value)
+			searchParams.set("category", value == "all" ? "" : value)
 			setSearchParams(searchParams, { replace: true })
 		},
 		[searchParams, setSearchParams]
@@ -61,13 +62,12 @@ export const ServicesPage = () => {
 			categoryItem => categoryItem.attributes.slug == category
 		)?.attributes
 
-		console.log(categoryItem)
+		refetch()
 
 		if (categoryItem?.locale && lang != categoryItem?.locale) {
 			const slug = categoryItem.localizations.data[0].attributes.slug
-			setCategory(slug)
-			refetch()
 			navigate(`/${lang}/services?category=${slug}`, { replace: true })
+			setCategory(slug)
 		}
 	}, [lang])
 
@@ -87,14 +87,35 @@ export const ServicesPage = () => {
 
 				{!isLoading && (
 					<>
-						<Select onValueChange={handleCategoryChange} value={category}>
+						<Select
+							open={isSelectOpened}
+							onOpenChange={() => {
+								setTimeout(() => {
+									setIsSelectOpened(prev => !prev)
+								}, 0)
+							}}
+							onValueChange={handleCategoryChange}
+							value={category}
+						>
 							<SelectTrigger className="my-4">
 								<SelectValue placeholder="" />
 							</SelectTrigger>
-							<SelectContent>
-								<SelectItem value={"all"}>All</SelectItem>
+
+							<SelectContent className="z-[100]">
+								<SelectItem
+									value={"all"}
+									onPointerUp={event => event.stopPropagation()}
+									onClick={event => event.stopPropagation()}
+								>
+									{t("all")}
+								</SelectItem>
 								{categories?.data?.map(({ id, attributes }) => (
-									<SelectItem key={id} value={attributes.slug}>
+									<SelectItem
+										key={id}
+										value={attributes.slug}
+										onPointerUp={event => event.stopPropagation()}
+										onClick={event => event.stopPropagation()}
+									>
 										{attributes.name}
 									</SelectItem>
 								))}

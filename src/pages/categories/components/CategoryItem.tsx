@@ -2,18 +2,13 @@ import { ICategory } from "@/api/api"
 import { FC } from "react"
 import { Link, useParams } from "react-router-dom"
 
-export const CategoryItem: FC<ICategory> = ({
-	name,
-	description,
-	img,
-	slug,
-}) => {
+export const CategoryItem: FC<ICategory> = ({ name, img, slug }) => {
 	const { lang } = useParams()
 	return (
 		<article>
 			<Link
 				to={`/${lang}/services?category=${slug}`}
-				className="flex flex-col rounded-3xl shadow-lg transition-shadow hover:shadow-xl"
+				className="flex flex-col rounded-3xl shadow-lg transition-shadow hover:shadow-xl h-full"
 			>
 				<div className="relative aspect-square h-[400px] overflow-hidden rounded-t-3xl">
 					<img
@@ -24,7 +19,6 @@ export const CategoryItem: FC<ICategory> = ({
 				</div>
 				<div className="rounded-b-3xl bg-white p-6">
 					<h2 className="text-2xl font-bold">{name}</h2>
-					<div className="text-lg font-thin text-gray-600">{description}</div>
 				</div>
 			</Link>
 		</article>

@@ -20,6 +20,7 @@ export type CartItemsFunctions = {
 	incrementBortforslingQuantity: (id: number) => void
 	decrementBortforslingQuantity: (id: number) => void
 	deleteCartItem: (id: number) => void
+	resetCart: () => void
 }
 
 export type RotFunctions = {
@@ -137,6 +138,10 @@ export const useCartItems = create<
 			}))
 
 			localStorage.setItem("cartItems", JSON.stringify(get().cartItems))
+		},
+		resetCart() {
+			set(() => ({ cartItems: [] }))
+			localStorage.setItem("cartItems", JSON.stringify([]))
 		},
 	}))
 )

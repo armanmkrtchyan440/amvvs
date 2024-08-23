@@ -7,7 +7,6 @@ import { Helmet } from "react-helmet"
 import { SubmitHandler, useFieldArray, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import PhoneInput from "react-phone-number-input/react-hook-form-input"
-import { toast } from "react-toastify"
 import * as yup from "yup"
 
 export const QuotePage = () => {
@@ -72,7 +71,6 @@ export const QuotePage = () => {
 		mutationFn: applyContacts,
 		onSuccess() {
 			reset()
-			toast.success("arbetsansökan har skickats in")
 		},
 		onError(error) {
 			console.log(error)

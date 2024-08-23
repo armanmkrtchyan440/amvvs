@@ -56,11 +56,11 @@
 			"subtext": "Don't let plumbing challenges dampen your day. Contact us now for efficient, reliable service."
 		},
 		"testimonials": {
-			"header": "Customer Insight",
+			"header": "Customer View",
 			"subtext": "Real feedback from our satisfied clients which reflects our commitment to service and excellence.",
 			"topic": "Exceptional Work",
-			"quote": "AM VVS AB provided professional and detail-oriented service during our bathroom renovation. Truly top-notch!",
-			"name": "- John Smith",
+			"quote": "We renovated the barroom with the help of AM VVS. The work was done quickly and professionally. We are very happy with the result. Thank you Ashot for your nice and helpful treatment! We can highly recommend AM VVS",
+			"name": "- Jens Antonsson",
 			"link": "Go to Google feedbacks"
 		},
 		"about": {
@@ -76,7 +76,8 @@
 	},
 
 	"services": {
-		"title": "Our Plumbing Services"
+		"title": "Our Plumbing Services",
+		"all": "All"
 	},
 
 	"service": {
@@ -203,7 +204,7 @@
 		},
 		"after-rot": "(After ROT)",
 		"rot-deduction": "ROT deduction",
-		"sub-total": "Sub-Total",
+		"sub-total": "Total amount",
 		"removal": "Removal",
 		"items": "items",
 		"complete": "Complete Booking",
@@ -220,5 +221,10 @@
 		"title": "Something's missing.",
 		"description": "Sorry, we can't find that page. You'll find lots to explore on the home page.",
 		"link": "Home"
+	},
+
+	"cookie": {
+		"text": "This website uses cookies to enhance the user experience",
+		"button-text": "I understand"
 	}
 }
