@@ -1,5 +1,6 @@
 import { Animate } from "@/components/animate"
 import { LinkButton } from "@/components/ui/LinkButton"
+import { Helmet } from "react-helmet-async"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 import { businessManImg, heroImg, serviceImg } from "./images/homeImg"
@@ -11,6 +12,9 @@ export const HomePage = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>{t("meta.title")}</title>
+			</Helmet>
 			<section className="primary-color-bg primary-color-[50] code-section relative font-['Poppins'] bg-blue-50">
 				<div className="container relative z-10 lg:pb-32">
 					<div className="relative z-10 flex flex-col items-center lg:flex-row">
@@ -52,7 +56,6 @@ export const HomePage = () => {
 								src={heroImg}
 								alt="Hero"
 								className="seo-image relative mt-8 aspect-square w-full rounded-2xl object-cover lg:mt-0"
-								data-media='{"id":"4CNNH2KEjhc","src":"unsplash","type":"image"}'
 							/>
 						</Animate>
 					</div>

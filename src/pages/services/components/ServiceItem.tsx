@@ -10,12 +10,13 @@ export const ServiceItem: FC<IService> = ({ name, price, img, slug }) => {
 
 	return (
 		<article className="flex flex-col rounded-3xl shadow-lg hover:shadow-xl">
-			<Link to={`/${lang}/services/${slug}`} className="flex flex-col">
+			<Link to={`/${lang}/services/${slug}`} className="flex flex-col h-full">
 				<div className="relative aspect-square h-[400px] overflow-hidden rounded-t-3xl">
 					<img
 						className="h-full w-full object-cover"
 						src={import.meta.env.VITE_BASE_URL + img?.data?.attributes?.url}
 						alt={name}
+						loading="lazy"
 					/>
 				</div>
 				<div className="rounded-b-3xl bg-white p-6">

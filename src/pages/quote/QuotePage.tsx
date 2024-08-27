@@ -3,7 +3,7 @@ import { Loading } from "@/components/ui/Loading"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useMutation } from "@tanstack/react-query"
 import { ChangeEventHandler, useCallback, useMemo, useRef } from "react"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 import { SubmitHandler, useFieldArray, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import PhoneInput from "react-phone-number-input/react-hook-form-input"
@@ -108,7 +108,7 @@ export const QuotePage = () => {
 					<form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
 						<div>
 							<label htmlFor="name" className="block mb-2 font-medium">
-								{t("name.title")}
+								{t("name.title")}*
 							</label>
 							<input
 								type="text"
@@ -120,7 +120,7 @@ export const QuotePage = () => {
 						</div>
 						<div>
 							<label htmlFor="email" className="block mb-2 font-medium">
-								{t("email.title")}
+								{t("email.title")}*
 							</label>
 							<input
 								type="text"
@@ -132,7 +132,7 @@ export const QuotePage = () => {
 						</div>
 						<div>
 							<label htmlFor="phone" className="block mb-2 font-medium">
-								{t("phone.title")}
+								{t("phone.title")}*
 							</label>
 							<PhoneInput
 								international
@@ -194,13 +194,13 @@ export const QuotePage = () => {
 						</div>
 						<button
 							type="submit"
-							className="w-full p-3 bg-blue-600 text-white rounded-lg"
+							disabled={mutation.isPending}
+							className="primary-color-bg flex items-center gap-5 rounded px-8 py-3 text-sm font-semibold uppercase text-white bg-blue-600 hover:bg-blue-500 disabled:bg-blue-400"
 						>
-							{mutation.isPending ? (
-								<Loading className="w-5 h-5" />
-							) : (
-								t("submit")
+							{mutation.isPending && (
+								<Loading className="w-5 h-5 fill-blue-400" />
 							)}
+							{t("submit")}
 						</button>
 					</form>
 				</section>

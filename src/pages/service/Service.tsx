@@ -4,7 +4,7 @@ import { AddCartItemType, useCartItems } from "@/stores/useCartItems"
 import { calculateRot } from "@/utils/calculateRot"
 import { useQuery } from "@tanstack/react-query"
 import { useCallback, useEffect, useMemo, useState } from "react"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 import { useTranslation } from "react-i18next"
 import Markdown from "react-markdown"
 import { useNavigate, useParams } from "react-router-dom"
@@ -73,6 +73,31 @@ export const ServicePage = () => {
 					<div className="flex flex-col md:flex-row -mx-4">
 						<Helmet>
 							<title>{data?.data.attributes.name}</title>
+							<meta
+								name="description"
+								content={data?.data.attributes.description}
+							/>
+							<meta property="og:title" content={data?.data.attributes.name} />
+							<meta
+								name="og:description"
+								content={data?.data.attributes.description}
+							/>
+							<meta
+								property="og:image"
+								content={data?.data.attributes.img.data.attributes.url}
+							/>
+							<meta
+								property="twitter:title"
+								content={data?.data.attributes.name}
+							/>
+							<meta
+								property="twitter:description"
+								content={data?.data.attributes.description}
+							/>
+							<meta
+								property="twitter:image"
+								content={data?.data.attributes.img.data.attributes.url}
+							/>
 						</Helmet>
 						<div className="md:flex-1 px-4">
 							<div className="h-[460px] rounded-lg">

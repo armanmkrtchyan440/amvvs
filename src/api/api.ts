@@ -89,7 +89,9 @@ export async function getOurProjects() {
 
 export async function getServices(lang: string) {
 	const response = await fetch(
-		`${import.meta.env.VITE_BASE_URL}/api/services?locale=${lang}&populate=*`
+		`${
+			import.meta.env.VITE_BASE_URL
+		}/api/services?locale=${lang}&populate=*&pagination[limit]=100`
 	)
 	return (await response.json()) as IResponse<IResponseData<IService>[]>
 }
@@ -110,7 +112,7 @@ export async function getCategories(lang: string) {
 	const response = await fetch(
 		`${
 			import.meta.env.VITE_BASE_URL
-		}/api/categories?locale=${lang}&populate=*&filters[services][name][$contains]=`
+		}/api/categories?locale=${lang}&populate=*&filters[services][name][$contains]=&pagination[limit]=100`
 	)
 	return (await response.json()) as IResponse<IResponseData<ICategory>[]>
 }

@@ -1,7 +1,7 @@
 import { getCategories } from "@/api/api"
 import { Loading } from "@/components/ui/Loading"
 import { useQuery } from "@tanstack/react-query"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 import { CategoryItem } from "./components/CategoryItem"
@@ -31,7 +31,7 @@ export const CategoriesPage = () => {
 				{isLoading && <Loading />}
 
 				{!isLoading && (
-					<div className="relative z-10 grid grid-cols-1 grid-flow-row gap-8 md:grid-cols-3 items-stretch">
+					<div className="relative z-10 grid grid-cols-1 grid-flow-row gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
 						{data?.data?.map(category => (
 							<CategoryItem key={category.id} {...category.attributes} />
 						))}

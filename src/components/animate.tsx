@@ -66,11 +66,14 @@ export const Animate: FC<AnimateProps> = ({
 	...props
 }) => {
 	const animation = animations[type]
-	const [animateRef, springs] = useInView(() => ({
-		...animation,
-		trail: delay,
-		config: { duration },
-	}))
+	const [animateRef, springs] = useInView(
+		() => ({
+			...animation,
+			trail: delay,
+			config: { duration },
+		}),
+		{ once: true }
+	)
 
 	return (
 		<animated.div ref={animateRef} style={springs} {...props}>

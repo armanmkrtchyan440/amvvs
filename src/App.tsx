@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { HelmetProvider } from "react-helmet-async"
 import { RouterProvider } from "react-router-dom"
 import { Slide, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -9,15 +10,17 @@ const queryClient = new QueryClient()
 function App() {
 	return (
 		<QueryClientProvider client={queryClient}>
-			<RouterProvider router={router} />
-			<ToastContainer
-				position="bottom-center"
-				hideProgressBar={true}
-				autoClose={2000}
-				limit={3}
-				transition={Slide}
-				stacked
-			/>
+			<HelmetProvider>
+				<RouterProvider router={router} />
+				<ToastContainer
+					position="bottom-center"
+					hideProgressBar={true}
+					autoClose={2000}
+					limit={3}
+					transition={Slide}
+					stacked
+				/>
+			</HelmetProvider>
 		</QueryClientProvider>
 	)
 }

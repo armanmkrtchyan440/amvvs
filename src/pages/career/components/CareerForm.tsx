@@ -144,9 +144,11 @@ export const CareerForm = () => {
 				</div>
 				<button
 					type="submit"
-					className="w-full p-3 bg-blue-600 text-white rounded-lg"
+					disabled={mutation.isPending}
+					className="primary-color-bg flex items-center gap-5 rounded px-8 py-3 text-sm font-semibold uppercase text-white bg-blue-600 hover:bg-blue-500 disabled:bg-blue-400"
 				>
-					{mutation.isPending ? <Loading className="w-5 h-5" /> : t("submit")}
+					{mutation.isPending && <Loading className="w-5 h-5 fill-blue-400" />}
+					{t("submit")}
 				</button>
 			</form>
 		</section>

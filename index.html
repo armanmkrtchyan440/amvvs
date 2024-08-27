@@ -7,7 +7,10 @@
 			name="description"
 			content="Expertlösningar inom VVS för hem och företag. Kvalitetsservice, effektiv installation av varmvattenberedare och skräddarsydda badrumsrenoveringar i Stockholm."
 		/>
+		<meta name="author" content="AM VVS AB" />
+		<meta name="robots" content="index, follow" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta
 			property="og:title"
 			content="AM VVS AB - Professionella VVS-tjänster i Stockholm"
@@ -16,17 +19,21 @@
 			property="og:description"
 			content="Expertlösningar inom VVS för hem och företag. Kvalitetsservice, effektiv installation av varmvattenberedare och skräddarsydda badrumsrenoveringar i Stockholm."
 		/>
-		<meta name="twitter:card" content="summary_large_image" />
+		<meta property="og:image" content="/favicon.png" />
+		<meta property="og:image:width" content="300" />
+		<meta property="og:image:height" content="300" />
 		<meta
-			name="twitter:title"
+			property="twitter:title"
 			content="AM VVS AB - Professionella VVS-tjänster i Stockholm"
 		/>
 		<meta
-			name="twitter:description"
+			property="twitter:description"
 			content="Expertlösningar inom VVS för hem och företag. Kvalitetsservice, effektiv installation av varmvattenberedare och skräddarsydda badrumsrenoveringar i Stockholm."
 		/>
-		<meta property="og:image" content="/hero.jpg" />
-		<meta name="twitter:image" content="/hero.jpg" />
+		<meta property="twitter:image" content="/favicon.png" />
+
+		<link rel="alternate" href="%VITE_SITE_URL%/se" hreflang="se" />
+		<link rel="alternate" href="%VITE_SITE_URL%/en" hreflang="en" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,6 +43,11 @@
 			as="style"
 			onload="this.onload=null;this.rel='stylesheet'"
 		/>
+		<script
+			defer
+			src="https://kit.fontawesome.com/8e98006f77.js"
+			crossorigin="anonymous"
+		></script>
 		<noscript>
 			<link
 				href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600;700&family=Arimo:wght@300;400;500;600;700&display=swap"
@@ -47,11 +59,6 @@
 		<div id="loading"></div>
 		<div id="modal"></div>
 		<div id="root"></div>
-		<script
-			defer
-			src="https://kit.fontawesome.com/8e98006f77.js"
-			crossorigin="anonymous"
-		></script>
 		<script type="module" src="/src/main.tsx"></script>
 	</body>
 </html>

@@ -13,7 +13,7 @@ import {
 	SelectValue,
 } from "@/components/ui/select"
 import { useCallback, useEffect, useMemo, useState } from "react"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 
 export const ServicesPage = () => {
 	const { t } = useTranslation(undefined, { keyPrefix: "services" })
@@ -121,7 +121,7 @@ export const ServicesPage = () => {
 								))}
 							</SelectContent>
 						</Select>
-						<div className="relative z-10 grid grid-cols-1 grid-flow-row gap-8 md:grid-cols-3 items-stretch">
+						<div className="relative z-10 grid grid-cols-1 grid-flow-row gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
 							{filteredServices?.map(service => (
 								<ServiceItem key={service.id} {...service.attributes} />
 							))}

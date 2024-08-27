@@ -10,11 +10,12 @@ import {
 	MouseEventHandler,
 	useCallback,
 	useEffect,
+	useMemo,
 	useRef,
 	useState,
 } from "react"
 import { useTranslation } from "react-i18next"
-import { FaCartShopping } from "react-icons/fa6"
+import { RiShoppingBag3Fill } from "react-icons/ri"
 import {
 	Link,
 	NavLink,
@@ -32,6 +33,11 @@ export const Header = () => {
 	const navigate = useNavigate()
 	const { lang } = useParams()
 	const headerRef = useRef<HTMLElement>(null)
+
+	const cartCount = useMemo(
+		() => cartItems.reduce((prev, next) => prev + next.quantity, 0),
+		[cartItems]
+	)
 
 	const handleScroll = useCallback(() => {
 		if (window.scrollY >= 50) {
@@ -85,8 +91,12 @@ export const Header = () => {
 			<nav className="container relative z-10">
 				<div className="flex items-center justify-between">
 					<div className="w-40">
-						<Link to={`/${lang}`} className="">
-							<img src="/logo-black.png" alt="" />
+						<Link
+							to={`/${lang}`}
+							className="w-full"
+							aria-label={window.location.hostname}
+						>
+							<img src="/logo-black.png" alt="AM VVS OCH BYGG ABB" />
 						</Link>
 					</div>
 					<div className="hidden items-center space-x-8 text-sm lg:flex lg:text-base">
@@ -111,9 +121,9 @@ export const Header = () => {
 						<NavLink to={`/${lang}/services`} className="nav-link">
 							{t("services")}
 						</NavLink>
-						<NavLink to={`/${lang}/blog`} className="nav-link">
+						{/* <NavLink to={`/${lang}/blog`} className="nav-link">
 							{t("blog")}
-						</NavLink>
+						</NavLink> */}
 						<NavLink to={`/${lang}/feedbacks`} className="nav-link">
 							{t("feedback")}
 						</NavLink>
@@ -121,12 +131,16 @@ export const Header = () => {
 							{t("career")}
 						</NavLink>
 						<Select onValueChange={handleChangeLanguage} value={lang}>
-							<SelectTrigger className="w-20">
+							<SelectTrigger className="w-8 h-min p-0 bg-transparent">
 								<SelectValue placeholder="" />
 							</SelectTrigger>
 							<SelectContent className="min-w-0">
-								<SelectItem value="en">en</SelectItem>
-								<SelectItem value="sv">sv</SelectItem>
+								<SelectItem value="en" className="w-16">
+									<img src="/great-britain-flag.webp" alt="" />
+								</SelectItem>
+								<SelectItem value="sv" className="w-16">
+									<img src="/sweden-flag.webp" alt="" />
+								</SelectItem>
 							</SelectContent>
 						</Select>
 					</div>
@@ -140,9 +154,9 @@ export const Header = () => {
               </Button> */}
 							<Link to={`/${lang}/cart`} className="relative">
 								<span className="flex justify-center items-center absolute -top-1 -right-1 w-4 h-4 bg-blue-600 rounded-full text-[10px] text-white">
-									{cartItems.length}
+									{cartCount}
 								</span>
-								<FaCartShopping className="text-3xl" />
+								<RiShoppingBag3Fill className="text-3xl" />
 							</Link>
 						</div>
 					</div>
@@ -151,12 +165,16 @@ export const Header = () => {
 						className="flex items-center gap-5 lg:hidden"
 					>
 						<Select onValueChange={handleChangeLanguage} value={lang}>
-							<SelectTrigger className="w-20">
+							<SelectTrigger className="w-8 h-min p-0 bg-transparent">
 								<SelectValue placeholder="" />
 							</SelectTrigger>
 							<SelectContent className="min-w-0">
-								<SelectItem value="en">en</SelectItem>
-								<SelectItem value="sv">sv</SelectItem>
+								<SelectItem value="en" className="w-16">
+									<img src="/great-britain-flag.webp" alt="" />
+								</SelectItem>
+								<SelectItem value="sv" className="w-16">
+									<img src="/sweden-flag.webp" alt="" />
+								</SelectItem>
 							</SelectContent>
 						</Select>
 						<div id="nav-cta" className="flex items-center space-x-4 text-sm">
@@ -166,9 +184,9 @@ export const Header = () => {
               </Button> */}
 								<Link to={`/${lang}/cart`} className="relative">
 									<span className="flex justify-center items-center absolute -top-1 -right-1 w-4 h-4 bg-blue-600 rounded-full text-[10px] text-white">
-										{cartItems.length}
+										{cartCount}
 									</span>
-									<FaCartShopping className="text-3xl" />
+									<RiShoppingBag3Fill className="text-3xl" />
 								</Link>
 							</div>
 						</div>
@@ -216,9 +234,9 @@ export const Header = () => {
 						<NavLink to={`/${lang}/services`} className="nav-link">
 							{t("services")}
 						</NavLink>
-						<NavLink to={`/${lang}/blog`} className="nav-link">
+						{/* <NavLink to={`/${lang}/blog`} className="nav-link">
 							{t("blog")}
-						</NavLink>
+						</NavLink> */}
 						<NavLink to={`/${lang}/feedbacks`} className="nav-link">
 							{t("feedback")}
 						</NavLink>

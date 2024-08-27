@@ -13,6 +13,10 @@
 	},
 	"home": {
 		"contact-us": "Kontakta oss",
+		"meta": {
+			"title": "Professionella VVS-tjänster i Stockholm",
+			"description": "Expertlösningar inom VVS för hem och företag. Kvalitetsservice, effektiv installation av varmvattenberedare och skräddarsydda badrumsrenoveringar i Stockholm."
+		},
 		"hero": {
 			"title": {
 				"line1": "Vår policy är",

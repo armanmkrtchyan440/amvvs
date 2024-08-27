@@ -12,6 +12,10 @@
 	},
 	"home": {
 		"contact-us": "Contact Us",
+		"meta": {
+			"title": "Professional plumbing services in Stockholm",
+			"description": "Expert plumbing solutions for homes and businesses. Quality service, efficient water heater installation and customised bathroom renovations in Stockholm."
+		},
 		"hero": {
 			"title": {
 				"line1": "Our policy is",

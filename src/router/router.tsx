@@ -47,11 +47,11 @@ const KassaPage = lazy(() =>
 	}))
 )
 
-const BlogPage = lazy(() =>
-	import("@/pages/blog/BlogPage").then(({ BlogPage }) => ({
-		default: BlogPage,
-	}))
-)
+// const BlogPage = lazy(() =>
+// 	import("@/pages/blog/BlogPage").then(({ BlogPage }) => ({
+// 		default: BlogPage,
+// 	}))
+// )
 
 const CareerPage = lazy(() =>
 	import("@/pages/career/CareerPage").then(({ CareerPage }) => ({
@@ -147,15 +147,15 @@ export const router = createBrowserRouter([
 				),
 				errorElement: <ErrorPage />,
 			},
-			{
-				path: "blog",
-				element: (
-					<Suspense fallback={<PageLoader />}>
-						<BlogPage />
-					</Suspense>
-				),
-				errorElement: <ErrorPage />,
-			},
+			// {
+			// 	path: "blog",
+			// 	element: (
+			// 		<Suspense fallback={<PageLoader />}>
+			// 			<BlogPage />
+			// 		</Suspense>
+			// 	),
+			// 	errorElement: <ErrorPage />,
+			// },
 			{
 				path: "career",
 				element: (

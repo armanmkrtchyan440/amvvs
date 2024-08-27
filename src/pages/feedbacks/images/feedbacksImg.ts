@@ -1,1 +1,1 @@
-export { default as reviewImg } from "./files/reviews.jpg";
+export { default as reviewImg } from "./files/reviews.webp"

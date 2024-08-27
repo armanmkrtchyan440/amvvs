@@ -26,7 +26,11 @@ export const Footer = () => {
 				<div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden"></div>
 				<div className="relative z-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
 					<div className="mb-8 flex flex-col space-y-4">
-						<Link to={`/${lang}`} className="w-40">
+						<Link
+							to={`/${lang}`}
+							className="w-40"
+							aria-label={location.hostname}
+						>
 							<img src="/logo-black.png" alt="" />
 						</Link>
 						<div
@@ -54,9 +58,9 @@ export const Footer = () => {
 							<NavLink to={`/${lang}/services`} className="nav-link">
 								{t("nav-links.services")}
 							</NavLink>
-							<NavLink to={`/${lang}/blog`} className="nav-link">
+							{/* <NavLink to={`/${lang}/blog`} className="nav-link">
 								{t("nav-links.blog")}
-							</NavLink>
+							</NavLink> */}
 							<NavLink to={`/${lang}/feedbacks`} className="nav-link">
 								{t("nav-links.feedback")}
 							</NavLink>
@@ -143,6 +147,7 @@ export const Footer = () => {
 						<a
 							href="https://sakervatten.se/company/1233072/am-vvs-och-bygg-ab/"
 							target="_blank"
+							aria-label="sakervatten.se"
 						>
 							<img src={sakervattenLogo} className="w-20" />
 						</a>

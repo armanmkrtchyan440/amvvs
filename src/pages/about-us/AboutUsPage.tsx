@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 import { useTranslation } from "react-i18next"
 import { aboutUsBigImg, aboutUsSmallImg } from "./images/aboutImg"
 
@@ -13,6 +13,8 @@ export const AboutUsPage = () => {
 			<Helmet>
 				<title>{t("about.header")}</title>
 				<meta name="description" content={t("about.paragraph1")} />
+				<meta property="og:title" content={t("about.header")} />
+				<meta property="og:description" content={t("about.paragraph1")} />
 			</Helmet>
 			<div className="container relative z-10 lg:pb-12">
 				<div className="relative z-10 flex flex-col items-center lg:flex-row">

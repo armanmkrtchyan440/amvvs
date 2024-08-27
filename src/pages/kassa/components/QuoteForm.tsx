@@ -6,6 +6,7 @@ import PhoneInput from "react-phone-number-input/react-hook-form-input"
 import "react-phone-number-input/style.css"
 import * as yup from "yup"
 
+import { Loading } from "@/components/ui/Loading"
 import { useCartItems } from "@/stores/useCartItems"
 import { FormState, useFormState } from "@/stores/useFormState"
 import { useMutation } from "@tanstack/react-query"
@@ -74,9 +75,6 @@ export const QuoteForm = () => {
 			setContact(getValues())
 			navigate(`/${lang}`, { replace: true })
 		},
-		onError(error) {
-			throw error
-		},
 	})
 
 	const onSubmit = useCallback<SubmitHandler<FormState>>(
@@ -130,7 +128,7 @@ export const QuoteForm = () => {
 					<div className="w-full">
 						<div>
 							<label htmlFor="first-name" className="font-medium text-gray-700">
-								{t("first-name.title")}
+								{t("first-name.title")}*
 							</label>
 						</div>
 						<div>
@@ -145,7 +143,7 @@ export const QuoteForm = () => {
 					<div className="w-full">
 						<div>
 							<label htmlFor="last-name" className="font-medium text-gray-700">
-								{t("last-name.title")}
+								{t("last-name.title")}*
 							</label>
 						</div>
 						<div>
@@ -162,7 +160,7 @@ export const QuoteForm = () => {
 					<div className="w-full">
 						<div>
 							<label htmlFor="email" className="font-medium text-gray-700">
-								{t("email.title")}
+								{t("email.title")}*
 							</label>
 						</div>
 						<div>
@@ -177,7 +175,7 @@ export const QuoteForm = () => {
 					<div className="w-full">
 						<div>
 							<label htmlFor="phone" className="font-medium text-gray-700">
-								{t("phone.title")}
+								{t("phone.title")}*
 							</label>
 						</div>
 						<div>
@@ -244,7 +242,11 @@ export const QuoteForm = () => {
 							)
 						})}
 						{contact.files.length < 3 && (
-							<button type="button" onClick={() => fileInpRef.current?.click()}>
+							<button
+								type="button"
+								className="px-8 py-4 border transition-shadow hover:shadow"
+								onClick={() => fileInpRef.current?.click()}
+							>
 								{t("files.title")}
 							</button>
 						)}
@@ -253,8 +255,12 @@ export const QuoteForm = () => {
 				<div>
 					<button
 						type="submit"
-						className="primary-color-bg items-center rounded px-8 py-3 text-sm font-semibold uppercase text-white bg-blue-600 hover:bg-blue-500"
+						disabled={mutation.isPending}
+						className="primary-color-bg flex items-center gap-5 rounded px-8 py-3 text-sm font-semibold uppercase text-white bg-blue-600 hover:bg-blue-500 disabled:bg-blue-400"
 					>
+						{mutation.isPending && (
+							<Loading className="w-5 h-5 fill-blue-400" />
+						)}
 						{t("submit")}
 					</button>
 				</div>

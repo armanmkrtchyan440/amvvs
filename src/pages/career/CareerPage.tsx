@@ -1,7 +1,7 @@
 import { getJobs } from "@/api/api"
 import { Loading } from "@/components/ui/Loading"
 import { useQuery } from "@tanstack/react-query"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 import { CareerForm } from "./components/CareerForm"
