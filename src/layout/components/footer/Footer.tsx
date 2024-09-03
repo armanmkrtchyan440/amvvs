@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa6"
 import { Link, NavLink, useParams } from "react-router-dom"
 import id06Logo from "../img/id06.png"
-import sakervattenLogo from "../img/sakervatten.png"
+import sakervattenLogo from "../img/sakervatten.webp"
 import tryggHansaLogo from "../img/trygg-hansa.png"
 
 export const Footer = () => {
@@ -149,7 +149,7 @@ export const Footer = () => {
 							target="_blank"
 							aria-label="sakervatten.se"
 						>
-							<img src={sakervattenLogo} className="w-20" />
+							<img src={sakervattenLogo} className="w-24" />
 						</a>
 						<img src={tryggHansaLogo} className="w-36" />
 						<img src={id06Logo} className="w-36" />
