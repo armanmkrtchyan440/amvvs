@@ -49,10 +49,6 @@ export const Header = () => {
 		[location, navigate]
 	)
 
-	const handleWindowClick = useCallback(() => {
-		setIsNavOpen(false)
-	}, [])
-
 	const handleNavOpen = useCallback<MouseEventHandler<HTMLButtonElement>>(e => {
 		e.stopPropagation()
 		setIsNavOpen(prev => !prev)
