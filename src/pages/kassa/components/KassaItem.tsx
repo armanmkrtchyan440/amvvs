@@ -1,7 +1,7 @@
-import { CartItemType, useCartItems } from "@/stores/useCartItems"
-import { calculateRot } from "@/utils/calculateRot"
-import { FC, useMemo } from "react"
-import { useTranslation } from "react-i18next"
+import { CartItemType, useCartItems } from '@/stores/useCartItems'
+import { calculateRot } from '@/utils/calculateRot'
+import { FC, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export const KassaItem: FC<CartItemType> = ({
 	name,
@@ -11,7 +11,7 @@ export const KassaItem: FC<CartItemType> = ({
 	bortforsling,
 	bortforslingQuantity,
 }) => {
-	const { t } = useTranslation(undefined, { keyPrefix: "carts" })
+	const { t } = useTranslation(undefined, { keyPrefix: 'carts' })
 
 	const {
 		incrementQuantity,
@@ -22,11 +22,8 @@ export const KassaItem: FC<CartItemType> = ({
 	} = useCartItems()
 
 	const rotPrice = useMemo(
-		() =>
-			rot
-				? calculateRot(price + bortforsling * bortforslingQuantity)
-				: price + bortforsling * bortforslingQuantity,
-		[rot, price, bortforsling, bortforslingQuantity]
+		() => (rot ? calculateRot(price * quantity) : price * quantity),
+		[rot, price, quantity]
 	)
 
 	const rotBortforslingPrice = useMemo(
@@ -37,27 +34,25 @@ export const KassaItem: FC<CartItemType> = ({
 		[rot, bortforsling, bortforslingQuantity]
 	)
 
-	const rotTotalPrice = useMemo(() => rotPrice * quantity, [rotPrice, quantity])
-
 	return (
-		<div className="border-t">
-			<div className="flex justify-between items-center py-4">
+		<div className='border-t'>
+			<div className='flex justify-between items-center py-4'>
 				<div>
 					<h3>{name}</h3>
 					<span>
-						{rotTotalPrice}:- {rot && t("after-rot")}
+						{rotPrice}:- {rot && t('after-rot')}
 					</span>
 				</div>
-				<div className="flex justify-center items-center gap-5">
+				<div className='flex justify-center items-center gap-5'>
 					<button
-						className="quantity-button"
+						className='quantity-button'
 						onClick={() => decrementQuantity(uid)}
 					>
 						-
 					</button>
 					<span>{quantity}</span>
 					<button
-						className="quantity-button"
+						className='quantity-button'
 						onClick={() => incrementQuantity(uid)}
 					>
 						+
@@ -65,21 +60,23 @@ export const KassaItem: FC<CartItemType> = ({
 				</div>
 			</div>
 			{rotBortforslingPrice != 0 && (
-				<div className="flex justify-between items-center py-4">
+				<div className='flex justify-between items-center py-4'>
 					<div>
-						<h3>{t("removal")}</h3>
-						<span>{rotBortforslingPrice}:-</span>
+						<h3>{t('removal')}</h3>
+						<span>
+							{rotBortforslingPrice}:- {rot && t('after-rot')}
+						</span>
 					</div>
-					<div className="flex justify-center items-center gap-5">
+					<div className='flex justify-center items-center gap-5'>
 						<button
-							className="quantity-button"
+							className='quantity-button'
 							onClick={() => decrementBortforslingQuantity(uid)}
 						>
 							-
 						</button>
 						<span>{bortforslingQuantity}</span>
 						<button
-							className="quantity-button"
+							className='quantity-button'
 							onClick={() => incrementBortforslingQuantity(uid)}
 						>
 							+
