@@ -31,7 +31,12 @@ export const Footer = () => {
 							className='w-40'
 							aria-label={location.hostname}
 						>
-							<img loading='lazy' src='/logo-black.png' alt='' />
+							<img
+								loading='lazy'
+								src='/FinalLogo.png'
+								alt=''
+								className='w-full'
+							/>
 						</Link>
 						<div
 							id='footer-name-subtext'
@@ -126,7 +131,7 @@ export const Footer = () => {
 									target='_blank'
 									className='text-sm flex items-center'
 								>
-									AM VVS AB
+									AM VVS STOCKHOLM
 								</a>
 							</div>
 							<div className='flex flex-row items-center gap-2'>
@@ -134,18 +139,18 @@ export const Footer = () => {
 									<FaInstagram size={16} color='#2563eb' />
 								</div>
 								<a
-									href='https://www.instagram.com/am_vvs_ab'
+									href='https://www.instagram.com/am_vvs_stochkolm'
 									target='_blank'
 									className='text-sm flex items-center'
 								>
-									am_vvs_ab
+									am_vvs_stochkolm
 								</a>
 							</div>
 						</div>
 					</div>
 					<div className='mb-8 flex flex-col space-y-4 text-gray-700'>
 						<a
-							href='https://sakervatten.se/company/1233072/am-vvs-och-bygg-ab/'
+							href='https://sakervatten.se/company/1233072/am-vvs-och-bygg-STOCKHOLM/'
 							target='_blank'
 							aria-label='sakervatten.se'
 						>

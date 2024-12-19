@@ -79,17 +79,21 @@ export const Header = () => {
 							<div className='flex items-center justify-center rounded-full p-2'>
 								<FaFacebookF size={16} color='#2563eb' />
 							</div>
-							<p className='text-sm items-center hidden md:flex'>AM VVS AB</p>
+							<p className='text-sm items-center hidden md:flex'>
+								AM VVS STOCKHOLM
+							</p>
 						</a>
 						<a
-							href='https://www.instagram.com/am_vvs_ab'
+							href='https://www.instagram.com/am_vvs_stochkolm'
 							target='_blank'
 							className='flex flex-row items-center gap-2'
 						>
 							<div className='flex items-center justify-center rounded-full p-2'>
 								<FaInstagram size={16} color='#2563eb' />
 							</div>
-							<p className='text-sm items-center hidden md:flex'>am_vvs_ab</p>
+							<p className='text-sm items-center hidden md:flex'>
+								am_vvs_stochkolm
+							</p>
 						</a>
 						<a
 							href='mailto:info@amvvsbygg.se'
@@ -130,14 +134,15 @@ export const Header = () => {
 						>
 							<img
 								loading='lazy'
-								src='/logo-black.png'
+								src='/FinalLogo.png'
+								// className='w-16'
 								alt='AM VVS OCH BYGG ABB'
 							/>
 						</Link>
 					</div>
 					<div className='hidden items-center space-x-8 text-sm lg:flex lg:text-base'>
 						<a
-							href='https://sakervatten.se/company/1233072/am-vvs-och-bygg-ab/'
+							href='https://sakervatten.se/company/1233072/am-vvs-och-bygg-STOCKHOLM/'
 							target='_blank'
 						>
 							<img
