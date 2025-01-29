@@ -1,147 +1,155 @@
-import { IService } from "@/api/api"
-import { t } from "i18next"
-import { toast } from "react-toastify"
-import { create } from "zustand"
-import { devtools } from "zustand/middleware"
+import type { IService } from "@/api/api";
+import { t } from "i18next";
+import { create } from "zustand";
+import { devtools } from "zustand/middleware";
 
 export type CartItemType = {
-	id: number
-	uid: number
-	quantity: number
-	bortforslingQuantity: number
-} & IService
+  id: number;
+  uid: number;
+  quantity: number;
+  bortforslingQuantity: number;
+} & IService;
 
-export type AddCartItemType = Omit<CartItemType, "id" | "quantity" | "uid">
+export type AddCartItemType = Omit<CartItemType, "id" | "quantity" | "uid">;
 
 export type CartItemsFunctions = {
-	addCartItem: (id: number, cartItem: AddCartItemType) => void
-	incrementQuantity: (id: number) => void
-	decrementQuantity: (id: number) => void
-	incrementBortforslingQuantity: (id: number) => void
-	decrementBortforslingQuantity: (id: number) => void
-	deleteCartItem: (id: number) => void
-	resetCart: () => void
-}
+  addCartItem: (id: number, cartItem: AddCartItemType) => void;
+  incrementQuantity: (id: number) => void;
+  decrementQuantity: (id: number) => void;
+  incrementBortforslingQuantity: (id: number) => void;
+  decrementBortforslingQuantity: (id: number) => void;
+  deleteCartItem: (id: number) => void;
+  resetCart: () => void;
+};
 
 export type RotFunctions = {
-	toggleRot: () => void
-}
+  toggleRot: () => void;
+};
 
 const cartItems: CartItemType[] =
-	JSON.parse(localStorage.getItem("cartItems") as string) || []
+  JSON.parse(localStorage.getItem("cartItems") as string) || [];
 
 export const useCartItems = create<
-	{ cartItems: CartItemType[]; rot: boolean } & CartItemsFunctions &
-		RotFunctions
+  { cartItems: CartItemType[]; rot: boolean } & CartItemsFunctions &
+    RotFunctions
 >()(
-	devtools((set, get) => ({
-		cartItems,
-		rot: true,
+  devtools((set, get) => ({
+    cartItems,
+    rot: true,
 
-		toggleRot() {
-			set(state => ({ rot: !state.rot }))
-		},
+    toggleRot() {
+      set((state) => ({ rot: !state.rot }));
+    },
 
-		addCartItem(id, cartItem) {
-			toast.clearWaitingQueue()
+    async addCartItem(id, cartItem) {
+      const toast = await toaster();
+      toast.clearWaitingQueue();
 
-			toast(t("carts.add", { name: cartItem.name }))
+      toast(t("carts.add", { name: cartItem.name }));
 
-			set(
-				{
-					cartItems: [
-						...get().cartItems,
-						{ id, ...cartItem, uid: Date.now(), quantity: 1 },
-					],
-				},
-				false,
-				"addCartItem"
-			)
+      set(
+        {
+          cartItems: [
+            ...get().cartItems,
+            { id, ...cartItem, uid: Date.now(), quantity: 1 },
+          ],
+        },
+        false,
+        "addCartItem",
+      );
 
-			localStorage.setItem("cartItems", JSON.stringify(get().cartItems))
-		},
+      localStorage.setItem("cartItems", JSON.stringify(get().cartItems));
+    },
 
-		incrementQuantity(id) {
-			const cart = get().cartItems.find(cart => cart.uid === id)
+    async incrementQuantity(id) {
+      const cart = get().cartItems.find((cart) => cart.uid === id);
 
-			if (!cart) {
-				return
-			}
+      if (!cart) {
+        return;
+      }
 
-			toast.clearWaitingQueue()
-			toast(t("carts.increase", { name: cart.name }))
+      const toast = await toaster();
 
-			cart.quantity++
-			set({ cartItems: [...get().cartItems] }, false, "incrementQuantity")
-			localStorage.setItem("cartItems", JSON.stringify(get().cartItems))
-		},
+      toast.clearWaitingQueue();
+      toast(t("carts.increase", { name: cart.name }));
 
-		decrementQuantity(id) {
-			const cart = get().cartItems.find(cart => cart.uid === id)
+      cart.quantity++;
+      set({ cartItems: [...get().cartItems] }, false, "incrementQuantity");
+      localStorage.setItem("cartItems", JSON.stringify(get().cartItems));
+    },
 
-			if (!cart) {
-				return
-			}
+    async decrementQuantity(id) {
+      const cart = get().cartItems.find((cart) => cart.uid === id);
 
-			if (cart.quantity <= 1) {
-				console.log(cart)
+      if (!cart) {
+        return;
+      }
 
-				get().deleteCartItem(cart.uid)
-				return
-			}
+      if (cart.quantity <= 1) {
+        console.log(cart);
 
-			cart.quantity--
+        get().deleteCartItem(cart.uid);
+        return;
+      }
 
-			toast(t("carts.decrease", { name: cart.name }))
+      cart.quantity--;
 
-			set({ cartItems: [...get().cartItems] }, false, "decrementQuantity")
-			localStorage.setItem("cartItems", JSON.stringify(get().cartItems))
-		},
+      const toast = await toaster();
 
-		incrementBortforslingQuantity(id) {
-			const cart = get().cartItems.find(cart => cart.uid === id)
+      toast(t("carts.decrease", { name: cart.name }));
 
-			if (!cart) {
-				return
-			}
+      set({ cartItems: [...get().cartItems] }, false, "decrementQuantity");
+      localStorage.setItem("cartItems", JSON.stringify(get().cartItems));
+    },
 
-			toast.clearWaitingQueue()
-			toast(t("carts.increase", { name: cart.name }))
+    async incrementBortforslingQuantity(id) {
+      const cart = get().cartItems.find((cart) => cart.uid === id);
 
-			cart.bortforslingQuantity++
-			set({ cartItems: [...get().cartItems] }, false, "incrementQuantity")
-			localStorage.setItem("cartItems", JSON.stringify(get().cartItems))
-		},
+      if (!cart) {
+        return;
+      }
 
-		decrementBortforslingQuantity(id) {
-			const cart = get().cartItems.find(cart => cart.uid === id)
+      const toast = await toaster();
 
-			if (!cart) {
-				return
-			}
+      toast.clearWaitingQueue();
+      toast(t("carts.increase", { name: cart.name }));
 
-			if (cart.quantity <= 0) {
-				return
-			}
+      cart.bortforslingQuantity++;
+      set({ cartItems: [...get().cartItems] }, false, "incrementQuantity");
+      localStorage.setItem("cartItems", JSON.stringify(get().cartItems));
+    },
 
-			cart.bortforslingQuantity--
+    async decrementBortforslingQuantity(id) {
+      const cart = get().cartItems.find((cart) => cart.uid === id);
 
-			toast(t("carts.decrease", { name: cart.name }))
+      if (!cart) {
+        return;
+      }
 
-			set({ cartItems: [...get().cartItems] }, false, "decrementQuantity")
-			localStorage.setItem("cartItems", JSON.stringify(get().cartItems))
-		},
+      if (cart.quantity <= 0) {
+        return;
+      }
 
-		deleteCartItem(id) {
-			set(state => ({
-				cartItems: state.cartItems.filter(cart => cart.uid !== id),
-			}))
+      cart.bortforslingQuantity--;
 
-			localStorage.setItem("cartItems", JSON.stringify(get().cartItems))
-		},
-		resetCart() {
-			set(() => ({ cartItems: [] }))
-			localStorage.setItem("cartItems", JSON.stringify([]))
-		},
-	}))
-)
+      const toast = await toaster();
+
+      toast(t("carts.decrease", { name: cart.name }));
+
+      set({ cartItems: [...get().cartItems] }, false, "decrementQuantity");
+      localStorage.setItem("cartItems", JSON.stringify(get().cartItems));
+    },
+
+    deleteCartItem(id) {
+      set((state) => ({
+        cartItems: state.cartItems.filter((cart) => cart.uid !== id),
+      }));
+
+      localStorage.setItem("cartItems", JSON.stringify(get().cartItems));
+    },
+    resetCart() {
+      set(() => ({ cartItems: [] }));
+      localStorage.setItem("cartItems", JSON.stringify([]));
+    },
+  })),
+);

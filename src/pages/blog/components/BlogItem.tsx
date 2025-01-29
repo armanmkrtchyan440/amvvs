@@ -1,17 +1,18 @@
-import { IBlog } from "@/api/api";
-import { FC, useMemo } from "react";
+import type { IBlog } from "@/api/api";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import type { FC } from "react";
+import { useMemo } from "react";
 import ReactPlayer from "react-player";
 
 export const BlogItem: FC<IBlog> = ({ title, video, thumb }) => {
   const videoUrl = useMemo(
     () => import.meta.env.VITE_BASE_URL + video?.data?.attributes?.url,
-    [video]
+    [video],
   );
 
   const thumbUrl = useMemo(
     () => import.meta.env.VITE_BASE_URL + thumb?.data?.attributes?.url,
-    [thumb]
+    [thumb],
   );
 
   return (

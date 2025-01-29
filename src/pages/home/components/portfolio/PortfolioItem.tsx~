@@ -1,5 +1,5 @@
-import type { IOurProjects } from "@/api/api";
-import type { FC } from "react";
+import { IOurProjects } from "@/api/api";
+import { FC } from "react";
 
 export const PortfolioItem: FC<IOurProjects> = ({ name, description, img }) => {
   return (
