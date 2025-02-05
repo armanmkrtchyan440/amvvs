@@ -1,5 +1,6 @@
 import { applyJob, ApplyJobBody } from "@/api/api";
 import { Loading } from "@/components/ui/Loading";
+import { toaster } from "@/utils/toast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMutation } from "@tanstack/react-query";
 import { ChangeEventHandler, useCallback, useMemo, useRef } from "react";
