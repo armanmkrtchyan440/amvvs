@@ -103,7 +103,7 @@ export const AboutUsPage = () => {
 					</div>
 				</div>
 				<iframe
-					src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2035.9340437397946!2d18.048690376685133!3d59.31735831197937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77e7e3617c21%3A0xf7efd85149cba2ce!2zSG9ybnNnYXRhbiA3OSwgMTE4IDQ5IFN0b2NraG9sbSwg0KjQstC10YbQuNGP!5e0!3m2!1sru!2sam!4v1724022133109!5m2!1s${lang}!2sam`}
+					src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2033.407389716142!2d17.998923177639618!3d59.35953947462899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77578d328231%3A0x829dfa0691113d97!2sAM%20VVS%20och%20Bygg%20AB!5e0!3m2!1sen!2sse!4v1739305511588!5m2!1s${lang}!2sse`}
 					width='100%'
 					height='450'
 					style={{ border: 0 }}
