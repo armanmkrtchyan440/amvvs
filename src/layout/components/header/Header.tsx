@@ -121,14 +121,14 @@ export const Header = () => {
             <a
               href="tel:+46859115333"
               className="flex flex-row items-center"
-              aria-label="+46 859 115 333"
+              aria-label="08-591 153 33"
             >
               <div className="flex items-center justify-center rounded-full p-2">
                 {/* <i className="primary-color-text fa-regular fa-phone text-sm text-blue-600"></i> */}
                 <FaPhone size={16} color="#2563eb" />
               </div>
               <p id="footer-phone-number" className="text-sm flex items-center">
-                +46 859 115 333
+                08-591 153 33
               </p>
             </a>
           </div>
