@@ -89,14 +89,14 @@ export const Footer = () => {
                     id="footer-phone-number"
                     className="text-sm flex items-center"
                   >
-                    +46 859 115 333
+                    08-591 153 33
                   </a>
                   <a
                     href="tel:+46728529999"
                     id="footer-phone-number"
                     className="text-sm flex items-center"
                   >
-                    +46 728 529 999
+                    07-285-299-99
                   </a>
                 </div>
               </div>
